@@ -35,8 +35,8 @@ const Navbar = () => {
     return (
         <header
             className={`${
-                transparentBackground ? "" : "shadow-md "
-            } bg-white dark:bg-zinc-900 sticky top-0 transition-shadow transition-colors duration-300`}
+                transparentBackground ? "" : "shadow-sm "
+            } bg-white dark:bg-zinc-900 sticky top-0 z-20 transition-shadow transition-colors duration-300`}
         >
             <div className="from-violet-500 to-purple-500 via-fuchsia-500 h-2 bg-gradient-to-r"></div>
             <nav className="font-poppins layout flex justify-between items-center py-3">
@@ -49,7 +49,7 @@ const Navbar = () => {
                                         route === navLink.href
                                             ? "text-violet-500"
                                             : "text-black dark:text-white hover:text-violet-400 dark:hover:text-violet-400"
-                                    }  transition duration-200`}
+                                    }  transition duration-200 focus:outline-none focus-visible:ring focus-visible:ring-violet-400`}
                                 >
                                     <span>{navLink.label}</span>
                                 </a>
@@ -58,7 +58,7 @@ const Navbar = () => {
                     ))}
                 </ul>
                 <button
-                    className="border-2 border-gray-300 dark:border-gray-600 hover:border-violet-400 dark:hover:border-violet-400 hover:text-violet-400 dark:hover:text-violet-400 text-black dark:text-white p-2 rounded-md transition duration-200"
+                    className="border-2 border-gray-300 dark:border-gray-600 hover:border-violet-400 dark:hover:border-violet-400 hover:text-violet-400 dark:hover:text-violet-400 text-black dark:text-white p-2 rounded-md transition duration-200 focus:outline-none focus-visible:ring focus-visible:ring-violet-400"
                     onClick={() =>
                         setTheme(theme === "dark" ? "light" : "dark")
                     }

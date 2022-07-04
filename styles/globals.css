@@ -11,3 +11,43 @@
     margin-left: auto;
     margin-right: auto;
 }
+
+#check-mark {
+    animation: checkmark 0.5s ease-in-out infinite alternate;
+}
+#dot_1,
+#dot_2,
+#dot_3 {
+    fill: #e6e6e6;
+}
+#dot_1 {
+    animation: dot;
+    animation-duration: 1s;
+    animation-delay: 0s;
+}
+#dot_2 {
+    animation: dot;
+    animation-duration: 1s;
+    animation-delay: 1s;
+}
+#dot_3 {
+    animation: dot;
+    animation-duration: 1s;
+    animation-delay: 2s;
+}
+@keyframes checkmark {
+    from {
+        transform: translateY(-4%);
+    }
+    to {
+        transform: translateY(0%);
+    }
+}
+@keyframes dot {
+    from {
+        fill: #e6e6e6;
+    }
+    to {
+        fill: #8b5cf6;
+    }
+}
