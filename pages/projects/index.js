@@ -1,44 +1,24 @@
-import Layout from "../components/Layout";
-import SvgBanner from "../components/SvgBanner";
+import Layout from "../../components/Layout";
 import Image from "next/image";
-import { getAllFilesFrontMatter } from "../lib/mdx";
+import { getAllFilesFrontMatter } from "../../lib/mdx";
 
-export default function Home({ projects }) {
+const Projects = ({ projects }) => {
     console.log(projects);
     return (
-        <Layout titlePage="Home">
-            {/* ======== START ::: BANNER SECTION ======== */}
-            <section className="font-poppins py-8 sm:py-16">
-                <div className="layout grid sm:grid-cols-2 gap-y-8 sm:gap-y-0 sm:gap-x-8">
-                    <div className="order-last sm:order-first flex flex-col justify-center ">
-                        <h1 className="text-3xl md:text-5xl font-medium ">
-                            Hi,
-                            <br /> You can call me{" "}
-                            <span className="from-violet-500 to-purple-500 via-fuchsia-500 bg-clip-text text-transparent bg-gradient-to-r">
-                                Erki!
-                            </span>
-                        </h1>
-                        <div className="mt-4 text-lg space-y-2">
-                            <p>
-                                I am a fullstack web developer. I love new
-                                chalenges and passionate about tech stuff.
-                            </p>
-                        </div>
-                    </div>
-                    <div className="h-44 sm:h-auto max-h-[25rem] flex flex-col justify-center">
-                        <SvgBanner />
-                    </div>
-                </div>
-            </section>
-            {/* ======== END ::: BANNER SECTION ======== */}
-            {/* ======== START ::: BIG PROJECTS SECTION ======== */}
+        <Layout titlePage="Projects">
             <section className="font-poppins py-4 sm:py-8">
-                <div className="layout ">
-                    <h1 className="py-1 mb-4 font-medium text-2xl md:text-4xl from-violet-500 to-purple-500 via-fuchsia-500 bg-clip-text text-transparent bg-gradient-to-r">
-                        My Big Projects
-                    </h1>
+                <div className="layout">
+                    <div className="mb-4">
+                        <h1 className="py-1 mb-1.5 font-medium text-2xl md:text-4xl from-violet-500 to-purple-500 via-fuchsia-500 bg-clip-text text-transparent bg-gradient-to-r">
+                            My Big Projects
+                        </h1>
+                        <p className="text-sm md:text-lg">
+                            All my projects that I have done.
+                        </p>
+                    </div>
+
                     <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 mb-4">
-                        {projects.map((project, index) => {
+                        {[...Array(10)].map((project, index) => {
                             return (
                                 <li
                                     key={index}
@@ -46,19 +26,22 @@ export default function Home({ projects }) {
                                 >
                                     <a
                                         className="block p-4 rounded-md focus:outline-none focus-visible:ring focus-visible:ring-violet-400"
-                                        href={`/projects/${project.slug}`}
+                                        href="/"
                                     >
                                         <div className="space-y-1 mb-3">
                                             <h2 className="text-lg md:text-xl font-semibold">
-                                                {project.title}
+                                                hehe
                                             </h2>
                                             <p className="text-sm text-gray-600 dark:text-gray-300">
-                                                {project.summary}
+                                                This project is about mini movie
+                                                database, you can find good
+                                                movies here and watch the
+                                                trailer. Check it out!
                                             </p>
                                         </div>
                                         <div className="h-40 sm:h-48 w-full relative mb-3 rounded-md border border-gray-300 dark:border-gray-600">
                                             <Image
-                                                src={`/images/${project.banner}`}
+                                                src={`/images/movie-website.png`}
                                                 className="h-full w-full rounded-md object-cover object-center"
                                                 layout="fill"
                                                 objectFit="cover"
@@ -86,19 +69,16 @@ export default function Home({ projects }) {
                             );
                         })}
                     </ul>
-                    <button className="py-1 px-4 text-lg rounded-sm border border-gray-300 dark:border-gray-600 hover:scale-[1.02] hover:border-violet-400 dark:hover:border-violet-400 hover:text-violet-500 dark:hover:text-violet-500 focus:outline-none focus-visible:ring focus-visible:ring-violet-400 transition">
-                        See more
-                    </button>
                 </div>
             </section>
-            {/* ======== END ::: BIG PROJECTS SECTION ======== */}
         </Layout>
     );
-}
+};
+
+export default Projects;
 
 export async function getStaticProps() {
     // fetch all the projects
-    let projects = await getAllFilesFrontMatter("projects");
-    projects = projects.filter((project) => project.isBigProject);
+    const projects = await getAllFilesFrontMatter("projects");
     return { props: { projects } };
 }

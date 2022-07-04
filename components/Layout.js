@@ -1,11 +1,11 @@
 import Head from "next/head";
 import Navbar from "./Navbar";
 
-const Layout = ({ children }) => {
+const Layout = ({ titlePage, children }) => {
     return (
         <>
             <Head>
-                <title>Create Next App</title>
+                <title>{titlePage} | Erki.com</title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Navbar />
