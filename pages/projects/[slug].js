@@ -29,14 +29,17 @@ const ProjectBlog = ({ mdxSource, frontMatter }) => {
                                 {frontMatter.title}
                             </h1>
                             <h1 className="text-lg font-medium text-gray-600 dark:text-gray-300">
-                                {frontMatter.publishedAt}
+                                📅 {frontMatter.publishedAt}
                             </h1>
                         </div>
                         <div className="flex space-x-2 mb-3">
                             {frontMatter.techStacks
                                 .split(",")
                                 .map((techStack, index) => (
-                                    <span className="block bg-violet-200 text-violet-900 py-1 px-2 rounded-sm">
+                                    <span
+                                        key={index}
+                                        className="block bg-violet-200 text-violet-900 py-1 px-2 rounded-sm"
+                                    >
                                         {techStack}
                                     </span>
                                 ))}
@@ -54,21 +57,27 @@ const ProjectBlog = ({ mdxSource, frontMatter }) => {
                             <span>-</span>
                             <div className="flex items-center space-x-1">
                                 <AiFillGithub className="stroke-gray-600 dark:stroke-gray-300" />
-                                <a
-                                    href={frontMatter.githubLink}
-                                    target="_blank"
-                                    className="text-gray-600 dark:text-gray-300 hover:text-violet-500 transition"
-                                >
-                                    Repository
-                                </a>
+                                {frontMatter.githubLink === "-" ? (
+                                    <span className="text-gray-600 dark:text-gray-300">
+                                        No Repository
+                                    </span>
+                                ) : (
+                                    <a
+                                        href={frontMatter.githubLink}
+                                        target="_blank"
+                                        className="text-gray-600 dark:text-gray-300 hover:text-violet-500 dark:hover:text-violet-500 transition"
+                                    >
+                                        Repository
+                                    </a>
+                                )}
                             </div>
                             <span>-</span>
                             <div className="flex items-center space-x-1">
                                 <TbWorld className="stroke-gray-600 dark:stroke-gray-300" />
                                 <a
-                                    href={frontMatter.githubLink}
+                                    href={frontMatter.demoWebsite}
                                     target="_blank"
-                                    className="text-gray-600 dark:text-gray-300 hover:text-violet-500 transition"
+                                    className="text-gray-600 dark:text-gray-300 hover:text-violet-500 dark:hover:text-violet-500 transition"
                                 >
                                     Demo Website
                                 </a>
