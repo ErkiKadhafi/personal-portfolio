@@ -65,6 +65,7 @@ const ProjectBlog = ({ mdxSource, frontMatter }) => {
                                     <a
                                         href={frontMatter.githubLink}
                                         target="_blank"
+                                        rel="noreferrer"
                                         className="text-gray-600 dark:text-gray-300 hover:text-violet-500 dark:hover:text-violet-500 transition"
                                     >
                                         Repository
@@ -77,6 +78,7 @@ const ProjectBlog = ({ mdxSource, frontMatter }) => {
                                 <a
                                     href={frontMatter.demoWebsite}
                                     target="_blank"
+                                    rel="noreferrer"
                                     className="text-gray-600 dark:text-gray-300 hover:text-violet-500 dark:hover:text-violet-500 transition"
                                 >
                                     Demo Website

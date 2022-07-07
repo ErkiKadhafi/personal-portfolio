@@ -65,6 +65,7 @@ export default function Home({ projects }) {
                                                 objectFit="cover"
                                                 objectPosition="center"
                                                 loading="lazy"
+                                                alt=""
                                             />
                                         </div>
                                         <p className="flex group-hover:text-violet-500 group-dark:hover:text-violet-500">

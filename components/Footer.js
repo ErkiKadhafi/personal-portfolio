@@ -8,23 +8,25 @@ const Footer = () => {
                 <div className="flex justify-center items-center space-x-4">
                     <a
                         href="mailto: erki.qaedhafi@gmail.com"
-                        className="text-3xl focus:outline-none focus-visible:ring focus-visible:ring-violet-400 "
+                        className="text-3xl focus:outline-none focus-visible:ring focus-visible:ring-violet-400  "
                     >
-                        <AiOutlineMail className="fill-gray-500 dark:fill-gray-600 hover:fill-violet-500 transition " />
+                        <AiOutlineMail className="fill-gray-500 dark:fill-gray-600 hover:fill-violet-500 dark:hover:fill-violet-500 transition " />
                     </a>
                     <a
                         href="https://www.linkedin.com/in/erkikadhafi/"
                         target="_blank"
-                        className="text-3xl focus:outline-none focus-visible:ring focus-visible:ring-violet-400"
+                        rel="noreferrer"
+                        className="text-3xl focus:outline-none focus-visible:ring focus-visible:ring-violet-400 "
                     >
-                        <AiFillLinkedin className="fill-gray-500 dark:fill-gray-600 hover:fill-violet-500 transition " />
+                        <AiFillLinkedin className="fill-gray-500 dark:fill-gray-600 hover:fill-violet-500 dark:hover:fill-violet-500 transition " />
                     </a>
                     <a
                         href="https://github.com/ErkiKadhafi"
                         target="_blank"
-                        className="text-3xl focus:outline-none focus-visible:ring focus-visible:ring-violet-400"
+                        rel="noreferrer"
+                        className="text-3xl focus:outline-none focus-visible:ring focus-visible:ring-violet-400 "
                     >
-                        <AiFillGithub className="fill-gray-500 dark:fill-gray-600 hover:fill-violet-500 transition " />
+                        <AiFillGithub className="fill-gray-500 dark:fill-gray-600 hover:fill-violet-500 dark:hover:fill-violet-500 transition " />
                     </a>
                 </div>
             </div>
