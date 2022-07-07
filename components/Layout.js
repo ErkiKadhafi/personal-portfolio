@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Footer from "./Footer";
 import Navbar from "./Navbar";
 
 const Layout = ({ titlePage, children }) => {
@@ -12,6 +13,7 @@ const Layout = ({ titlePage, children }) => {
             <main className="transition-colors duration-300 bg-white dark:bg-zinc-900 ">
                 {children}
             </main>
+            <Footer />
         </>
     );
 };

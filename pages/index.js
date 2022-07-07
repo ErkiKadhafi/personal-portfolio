@@ -2,9 +2,10 @@ import Layout from "../components/Layout";
 import SvgBanner from "../components/SvgBanner";
 import Image from "next/image";
 import { getAllFilesFrontMatter } from "../lib/mdx";
+import { useRouter } from "next/router";
 
 export default function Home({ projects }) {
-    console.log(projects);
+    const router = useRouter();
     return (
         <Layout titlePage="Home">
             {/* ======== START ::: BANNER SECTION ======== */}
@@ -86,7 +87,10 @@ export default function Home({ projects }) {
                             );
                         })}
                     </ul>
-                    <button className="py-1 px-4 text-lg rounded-sm border border-gray-300 dark:border-gray-600 hover:scale-[1.02] hover:border-violet-400 dark:hover:border-violet-400 hover:text-violet-500 dark:hover:text-violet-500 focus:outline-none focus-visible:ring focus-visible:ring-violet-400 transition">
+                    <button
+                        onClick={() => router.push("/projects")}
+                        className="py-1 px-4 text-lg rounded-sm border border-gray-300 dark:border-gray-600 hover:scale-[1.02] hover:border-violet-400 dark:hover:border-violet-400 hover:text-violet-500 dark:hover:text-violet-500 focus:outline-none focus-visible:ring focus-visible:ring-violet-400 transition"
+                    >
                         See more
                     </button>
                 </div>

@@ -3,14 +3,13 @@ import Image from "next/image";
 import { getAllFilesFrontMatter } from "../../lib/mdx";
 
 const Projects = ({ projects }) => {
-    console.log(projects);
     return (
         <Layout titlePage="Projects">
             <section className="font-poppins py-4 sm:py-8">
                 <div className="layout">
                     <div className="mb-4">
                         <h1 className="py-1 mb-1.5 font-medium text-2xl md:text-4xl from-violet-500 to-purple-500 via-fuchsia-500 bg-clip-text text-transparent bg-gradient-to-r">
-                            My Big Projects
+                            My Projects
                         </h1>
                         <p className="text-sm md:text-lg">
                             All my projects that I have done.
@@ -18,7 +17,7 @@ const Projects = ({ projects }) => {
                     </div>
 
                     <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 mb-4">
-                        {[...Array(10)].map((project, index) => {
+                        {projects.map((project, index) => {
                             return (
                                 <li
                                     key={index}
@@ -26,22 +25,19 @@ const Projects = ({ projects }) => {
                                 >
                                     <a
                                         className="block p-4 rounded-md focus:outline-none focus-visible:ring focus-visible:ring-violet-400"
-                                        href="/"
+                                        href={`/projects/${project.slug}`}
                                     >
                                         <div className="space-y-1 mb-3">
                                             <h2 className="text-lg md:text-xl font-semibold">
-                                                hehe
+                                                {project.title}
                                             </h2>
                                             <p className="text-sm text-gray-600 dark:text-gray-300">
-                                                This project is about mini movie
-                                                database, you can find good
-                                                movies here and watch the
-                                                trailer. Check it out!
+                                                {project.summary}
                                             </p>
                                         </div>
                                         <div className="h-40 sm:h-48 w-full relative mb-3 rounded-md border border-gray-300 dark:border-gray-600">
                                             <Image
-                                                src={`/images/movie-website.png`}
+                                                src={`/images/${project.banner}`}
                                                 className="h-full w-full rounded-md object-cover object-center"
                                                 layout="fill"
                                                 objectFit="cover"
