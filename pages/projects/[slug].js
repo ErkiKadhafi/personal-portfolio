@@ -66,7 +66,7 @@ const ProjectBlog = ({ mdxSource, frontMatter }) => {
                                         href={frontMatter.githubLink}
                                         target="_blank"
                                         rel="noreferrer"
-                                        className="text-gray-600 dark:text-gray-300 hover:text-violet-500 dark:hover:text-violet-500 transition"
+                                        className="text-gray-600 dark:text-gray-300 hover:text-violet-500 dark:hover:text-violet-500 transition focus:outline-none focus-visible:ring focus-visible:ring-violet-400"
                                     >
                                         Repository
                                     </a>
@@ -79,7 +79,7 @@ const ProjectBlog = ({ mdxSource, frontMatter }) => {
                                     href={frontMatter.demoWebsite}
                                     target="_blank"
                                     rel="noreferrer"
-                                    className="text-gray-600 dark:text-gray-300 hover:text-violet-500 dark:hover:text-violet-500 transition"
+                                    className="text-gray-600 dark:text-gray-300 hover:text-violet-500 dark:hover:text-violet-500 transition focus:outline-none focus-visible:ring focus-visible:ring-violet-400"
                                 >
                                     Demo Website
                                 </a>

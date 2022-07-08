@@ -20,10 +20,18 @@ export default function Home({ projects }) {
                             </span>
                         </h1>
                         <div className="mt-4 text-lg space-y-2">
-                            <p>
+                            <p className="mb-8">
                                 I am a fullstack web developer. I love new
                                 chalenges and passionate about tech stuff.
                             </p>
+                            <a
+                                href="https://drive.google.com/file/d/1PrLnYWWAfbzmVNUJM6_frD5B0R95MDD9/view?usp=sharing"
+                                target="_blank"
+                                rel="noreferrer"
+                                className="py-1 px-4 text-lg rounded-sm border border-gray-300 dark:border-gray-600 hover:scale-[1.02] hover:border-violet-400 dark:hover:border-violet-400 hover:text-violet-500 dark:hover:text-violet-500 focus:outline-none focus-visible:ring focus-visible:ring-violet-400 transition"
+                            >
+                                See Resume
+                            </a>
                         </div>
                     </div>
                     <div className="h-44 sm:h-auto max-h-[25rem] flex flex-col justify-center">

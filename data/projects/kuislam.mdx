@@ -1,61 +1,105 @@
 ---
 title: "Kuislam"
-publishedAt: Jan 2022
+publishedAt: January 2022
 summary: "Quiz web app about islamic knowledge. Check it out and test your knowledge about islam with your friends."
 banner: "kuislam-website.png"
 isBigProject: true
-techStacks: ReactJs, Redux, TailwindCSS
-githubLink: "https://github.com/ErkiKadhafi/movie-web-redux/"
-demoWebsite: "https://movie-web-redux.vercel.app/home"
+techStacks: Laravel, Laravel Pusher, AlpineJs, JQuery, TailwindCSS
+githubLink: "-"
+demoWebsite: "https://www.youtube.com/watch?v=NiYtHYJZgTA"
 ---
+
+> ## Project Purpose
+
+The purpose of this website is for help others to getting to know better about islamic knowledge trough
+technology and we finally get an idea to get this done by using quizz app.
 
 > ## About This Project
 
-This is my first project that using Redux in state management. In this
-project, I learn about state management concept and how to do it in
-best practice.
+This is my final project for my assignment fullstack developer bootcamp at **Yaumi Digital Shcool**.
+I collaborated with 7 people during development with 3 people from UI/UX team and the rest from Fullstack team.
+This project is very difficult to be complete because it contains a live synchronization during question section.
+After hours of research we finally found the solution which is using web socket.
 
-One thing that I learn is Redux is a powerful tools if it's used
-in big projects but for this, I think the redux is not fully optimized.
-It was because the API that used in fetching the data is very limited, hence
-the site doesn't have many features where the Redux is truly optimized.
+Beside of live synchronization challenge, the project it self is already quite difficult. It has a lot
+of pages, many relation table in the databases, authorization (for admin and regular users),
+and the design of the UI is quite challenging.
+
+It also has
+many third library integrations like **excel** document for content management for all the quiz, OAuth with **google**, and
+third party web socket from **Laravel Pusher**.
 
 > ## Features
 
 These are the features in this site
 
 -   Searching
--   Filtering
--   Pagination
--   Rating and Reviews
--   Authentication and Authorization
+-   Quiz Room
+-   Question Quizz
+-   CRUD for topic, category, and Quiz
+-   History
+-   Authentication and Authorization using Account
+-   Live Synchronization using Web Socket
 
 > ## About Tech Stack
 
-This site was built using Redux Toolkit, the newest version of Redux.
+This site was built using Laravel Pusher, a third party web socket
+from laravel. The web socket is used when:
+
+-   Notify user when other player is joined
+-   Notify another user when we have to go to the next question
 
 > ## App demo
 
 <ImageGallery>
     <Image
         className="rounded-md cursor-pointer"
-        src="/images/movie-website.png"
+        src="/images/kuislam-website.png"
         alt=""
     />
     <Image
         className="rounded-md cursor-pointer"
-        src="/images/movie-website-2.png"
+        src="/images/kuislam-website-2.png"
         alt=""
     />
     <Image
         className="rounded-md cursor-pointer"
-        src="/images/movie-website-3.png"
+        src="/images/kuislam-website-3.png"
         alt=""
     />
     <Image
         className="rounded-md cursor-pointer"
-        src="/images/movie-website-4.png"
+        src="/images/kuislam-website-4.png"
+        alt=""
+    />
+    <Image
+        className="rounded-md cursor-pointer"
+        src="/images/kuislam-website-5.png"
+        alt=""
+    />
+    <Image
+        className="rounded-md cursor-pointer"
+        src="/images/kuislam-website-6.png"
+        alt=""
+    />
+    <Image
+        className="rounded-md cursor-pointer"
+        src="/images/kuislam-website-7.png"
+        alt=""
+    />
+    <Image
+        className="rounded-md cursor-pointer"
+        src="/images/kuislam-website-8.png"
+        alt=""
+    />
+    <Image
+        className="rounded-md cursor-pointer"
+        src="/images/kuislam-website-9.png"
+        alt=""
+    />
+    <Image
+        className="rounded-md cursor-pointer"
+        src="/images/kuislam-website-10.png"
         alt=""
     />
 </ImageGallery>
-
