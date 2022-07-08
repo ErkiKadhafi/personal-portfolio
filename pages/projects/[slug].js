@@ -6,6 +6,7 @@ import Layout from "../../components/Layout";
 import { HiOutlineEye } from "react-icons/hi";
 import { AiFillGithub } from "react-icons/ai";
 import { TbWorld } from "react-icons/tb";
+import { BsFillPersonFill } from "react-icons/bs";
 import "react-image-lightbox/style.css";
 
 const ProjectBlog = ({ mdxSource, frontMatter }) => {
@@ -32,13 +33,13 @@ const ProjectBlog = ({ mdxSource, frontMatter }) => {
                                 📅 {frontMatter.publishedAt}
                             </h1>
                         </div>
-                        <div className="flex space-x-2 mb-3">
+                        <div className="flex flex-wrap mb-3">
                             {frontMatter.techStacks
                                 .split(",")
                                 .map((techStack, index) => (
                                     <span
                                         key={index}
-                                        className="block bg-violet-200 text-violet-900 py-1 px-2 rounded-sm"
+                                        className="block mr-2 mb-2 sm:mb-0 bg-violet-200 text-violet-900 py-1 px-2 rounded-sm"
                                     >
                                         {techStack}
                                     </span>
@@ -47,18 +48,28 @@ const ProjectBlog = ({ mdxSource, frontMatter }) => {
                         <p className="text-gray-600 dark:text-gray-300 mb-3">
                             {frontMatter.summary}
                         </p>
-                        <div className="flex items-center space-x-2">
-                            <div className="flex items-center space-x-1">
+                        <div className="flex flex-wrap items-center ">
+                            <div className="flex items-center space-x-1 mr-1.5 sm:mr-2">
                                 <HiOutlineEye className="stroke-gray-600 dark:stroke-gray-300" />
-                                <span className="text-gray-600 dark:text-gray-300">
+                                <span className="text-sm sm:text-base text-gray-600 dark:text-gray-300">
                                     {frontMatter.readingTime.text}
                                 </span>
                             </div>
-                            <span>-</span>
-                            <div className="flex items-center space-x-1">
+                            <span className="mr-1.5 sm:mr-2">-</span>
+                            <div className="flex items-center space-x-1 mr-1.5 sm:mr-2">
+                                <BsFillPersonFill className="stroke-gray-600 dark:stroke-gray-300" />
+                                <span className="text-sm sm:text-base text-gray-600 dark:text-gray-300">
+                                    {frontMatter.numberOfMember}{" "}
+                                    {frontMatter.numberOfMember === 1
+                                        ? "Person"
+                                        : "People"}
+                                </span>
+                            </div>
+                            <span className="mr-1.5 sm:mr-2">-</span>
+                            <div className="flex items-center space-x-1 mr-1.5 sm:mr-2">
                                 <AiFillGithub className="stroke-gray-600 dark:stroke-gray-300" />
                                 {frontMatter.githubLink === "-" ? (
-                                    <span className="text-gray-600 dark:text-gray-300">
+                                    <span className="text-sm sm:text-base text-gray-600 dark:text-gray-300">
                                         No Repository
                                     </span>
                                 ) : (
@@ -66,23 +77,29 @@ const ProjectBlog = ({ mdxSource, frontMatter }) => {
                                         href={frontMatter.githubLink}
                                         target="_blank"
                                         rel="noreferrer"
-                                        className="text-gray-600 dark:text-gray-300 hover:text-violet-500 dark:hover:text-violet-500 transition focus:outline-none focus-visible:ring focus-visible:ring-violet-400"
+                                        className="underline text-sm sm:text-base text-gray-600 dark:text-gray-300 hover:text-violet-500 dark:hover:text-violet-500 transition focus:outline-none focus-visible:ring focus-visible:ring-violet-400"
                                     >
                                         Repository
                                     </a>
                                 )}
                             </div>
-                            <span>-</span>
-                            <div className="flex items-center space-x-1">
+                            <span className="mr-1.5 sm:mr-2">-</span>
+                            <div className="flex items-center space-x-1 mr-1.5 sm:mr-2">
                                 <TbWorld className="stroke-gray-600 dark:stroke-gray-300" />
-                                <a
-                                    href={frontMatter.demoWebsite}
-                                    target="_blank"
-                                    rel="noreferrer"
-                                    className="text-gray-600 dark:text-gray-300 hover:text-violet-500 dark:hover:text-violet-500 transition focus:outline-none focus-visible:ring focus-visible:ring-violet-400"
-                                >
-                                    Demo Website
-                                </a>
+                                {frontMatter.demoWebsite === "-" ? (
+                                    <span className="text-sm sm:text-base text-gray-600 dark:text-gray-300">
+                                        No Demo Website
+                                    </span>
+                                ) : (
+                                    <a
+                                        href={frontMatter.demoWebsite}
+                                        target="_blank"
+                                        rel="noreferrer"
+                                        className="underline text-sm text-gray-600 dark:text-gray-300 hover:text-violet-500 dark:hover:text-violet-500 transition focus:outline-none focus-visible:ring focus-visible:ring-violet-400"
+                                    >
+                                        Demo Website
+                                    </a>
+                                )}
                             </div>
                         </div>
                     </div>
