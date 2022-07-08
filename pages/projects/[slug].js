@@ -4,8 +4,8 @@ import MDXComponents from "../../components/MDXComponents";
 import Layout from "../../components/Layout";
 
 import { HiOutlineEye } from "react-icons/hi";
-import { AiFillGithub } from "react-icons/Ai";
-import { TbWorld } from "react-icons/Tb";
+import { AiFillGithub } from "react-icons/ai";
+import { TbWorld } from "react-icons/tb";
 import "react-image-lightbox/style.css";
 
 const ProjectBlog = ({ mdxSource, frontMatter }) => {
