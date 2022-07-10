@@ -25,7 +25,7 @@ export default function Home({ projects }) {
                                 chalenges and passionate about tech stuff.
                             </p>
                             <a
-                                href="https://drive.google.com/file/d/1PrLnYWWAfbzmVNUJM6_frD5B0R95MDD9/view?usp=sharing"
+                                href="https://drive.google.com/file/d/1XMjrR1SYo7PTXy3dIPQZNqeCMxAkNSgh/view?usp=sharing"
                                 target="_blank"
                                 rel="noreferrer"
                                 className="py-1 px-4 text-lg rounded-sm border border-gray-300 dark:border-gray-600 hover:scale-[1.02] hover:border-violet-400 dark:hover:border-violet-400 hover:text-violet-500 dark:hover:text-violet-500 focus:outline-none focus-visible:ring focus-visible:ring-violet-400 transition"
