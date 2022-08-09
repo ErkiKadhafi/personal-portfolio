@@ -1,10 +1,7 @@
 import Layout from "../components/Layout";
-import SvgBanner from "../components/SvgBanner";
 import Image from "next/image";
 import { getAllFilesFrontMatter } from "../lib/mdx";
-import { useRouter } from "next/router";
 import { useTheme } from "next-themes";
-import { useState } from "react";
 
 import { FaLaravel, FaReact } from "react-icons/fa";
 import { AiOutlineHtml5 } from "react-icons/ai";
@@ -50,7 +47,6 @@ const myTechstack = [
 ];
 
 export default function Home({ projects }) {
-    const router = useRouter();
     const { theme } = useTheme();
 
     return (
