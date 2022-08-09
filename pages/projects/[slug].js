@@ -15,7 +15,7 @@ const ProjectBlog = ({ mdxSource, frontMatter }) => {
 
     return (
         <Layout titlePage={frontMatter.title}>
-            <section className="font-poppins pt-3 pb-8">
+            <section className="font-eina pt-3 pb-8">
                 <div className="layout ">
                     <div className="relative mb-3 ">
                         <img
@@ -30,7 +30,7 @@ const ProjectBlog = ({ mdxSource, frontMatter }) => {
                                 {frontMatter.title}
                             </h1>
                             <h1 className="text-lg font-medium text-gray-600 dark:text-gray-300">
-                                📅 {frontMatter.publishedAt}
+                                {frontMatter.publishedAt}
                             </h1>
                         </div>
                         <div className="flex flex-wrap mb-3">

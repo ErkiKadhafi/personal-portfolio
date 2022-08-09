@@ -10,7 +10,7 @@ const Layout = ({ titlePage, children }) => {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Navbar />
-            <main className="transition-colors duration-300 bg-white dark:bg-zinc-900 ">
+            <main className="transition-colors duration-300 bg-white dark:bg-black-primary ">
                 {children}
             </main>
             <Footer />
