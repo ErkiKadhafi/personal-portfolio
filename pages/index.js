@@ -19,28 +19,28 @@ const myTechstack = [
     {
         header: "Markup and Styling",
         techStacks: [
-            <AiOutlineHtml5 className="mr-1.5 mb-2" />,
-            <FaCss3Alt className="mr-1.5 mb-2" />,
-            <FaSass className="mr-1.5 mb-2" />,
-            <SiTailwindcss className="mr-1.5 mb-2" />,
-            <SiChakraui className="mr-1.5 mb-2" />,
+            <AiOutlineHtml5 key={1} className="mr-1.5 mb-2" />,
+            <FaCss3Alt key={2} className="mr-1.5 mb-2" />,
+            <FaSass key={3} className="mr-1.5 mb-2" />,
+            <SiTailwindcss key={4} className="mr-1.5 mb-2" />,
+            <SiChakraui key={5} className="mr-1.5 mb-2" />,
         ],
         desc: "I used to work with native CSS and Sass for easier syntax. Then since I know TailwindCSS, I use them as my default styling tools, because it's light and easy to use. For React styled components library, I use ChakraUI.",
     },
     {
         header: "Frontend Dev",
         techStacks: [
-            <FaReact className="mr-1.5 mb-2" />,
-            <TbBrandNextjs className="mr-1.5 mb-2" />,
-            <SiAlpinedotjs className="mr-1.5 mb-2" />,
+            <FaReact key={1} className="mr-1.5 mb-2" />,
+            <TbBrandNextjs key={2} className="mr-1.5 mb-2" />,
+            <SiAlpinedotjs key={3} className="mr-1.5 mb-2" />,
         ],
         desc: "I work with ReactJs and NextJs as my main tools in Javascript environment. I use AlpineJs to work when working with Laravel Blade templating engine.",
     },
     {
         header: "Backend Dev",
         techStacks: [
-            <FaLaravel className="mr-1 mb-2" />,
-            <SiPusher className="mr-1 mb-2" />,
+            <FaLaravel key={1} className="mr-1 mb-2" />,
+            <SiPusher key={2} className="mr-1 mb-2" />,
         ],
         desc: "I use Laravel as my PHP framework for backend development and Pusher as web socket library for Laravel.",
     },
