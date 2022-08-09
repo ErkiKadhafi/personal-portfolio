@@ -98,7 +98,7 @@ export default function Home({ projects }) {
                                 </h3>
                                 <div className="flex flex-wrap text-white text-3xl ">
                                     {item.techStacks.map((icon, index) => (
-                                        <span className="fill-white">
+                                        <span key={index} className="fill-white">
                                             {icon}
                                         </span>
                                     ))}
