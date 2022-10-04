@@ -13,7 +13,7 @@ const Projects = ({ projects }) => {
         <Layout titlePage="Projects">
             {/* ======== START ::: BANNER SECTIOn ======== */}
             <section className="font-eina">
-                <div className="layout flex items-center min-h-[21.875rem] h-[70vh] ">
+                <div className="layout flex items-center min-h-[21.875rem] h-[50vh] ">
                     <div className="flex items-center ">
                         {/* ======== pulse bar ======== */}
                         <div className="h-44 w-0.5 bg-gray-200 dark:bg-gray-800 rounded-full mr-8 overflow-hidden">
@@ -39,21 +39,22 @@ const Projects = ({ projects }) => {
             {/* ======== END ::: BANNER SECTIOn ======== */}
             {/* ======== START ::: HIGHLIGHTED PROJECTS SECTION ======== */}
             <section className="font-eina">
-                <div className="layout text-black-primary">
-                    <ul className="space-y-4">
+                <div className="layout text-black-primary pb-20">
+                    <ul className="grid md:grid-cols-2 gap-4">
                         {projects.map((project, index) => (
                             <li
                                 key={index}
-                                className="group border dark:border-gray-700 hover:border-purple-primary dark:hover:border-purple-primary dark:hover:shadow-banner-glow rounded pt-8 pb-6 px-8 relative md:ml-[25%] md:pl-[calc(25%+2rem)] lg:pl-[calc(20%+2rem)] transition"
+                                className="group border dark:border-gray-700 hover:border-purple-primary dark:hover:border-purple-primary dark:hover:shadow-banner-glow rounded pt-8 pb-6 px-8 relative transition"
                             >
                                 <Link href={`/projects/${project.slug}`}>
-                                    <a className="dark:text-white">
+                                    <a className="dark:text-white focus:outline-none focus-visible:ring focus-visible:ring-violet-400">
                                         <div className="w-8 h-2 bg-[#26ffae] mb-2"></div>
-                                        <div className="mb-4 md:mb-0 md:w-[70%] lg:w-[50%] md:-translate-x-1/2 md:-translate-y-1/2 md:absolute -left-4 top-1/2">
-                                            <img
+                                        <div className="h-56 relative border dark:border-gray-700 group-hover:border-purple-primary dark:group-hover:border-purple-primary dark:group-hover:shadow-banner-glow ">
+                                            <Image
+                                                layout="fill"
                                                 src={`/images/${project.banner}`}
                                                 alt="preview web"
-                                                className="rounded border border dark:border-gray-700 group-hover:border-purple-primary dark:group-hover:border-purple-primary dark:group-hover:shadow-banner-glow h-full w-full shadow-custom"
+                                                className="object-cover rounded border h-full w-full shadow-custom"
                                             />
                                         </div>
                                         <h3

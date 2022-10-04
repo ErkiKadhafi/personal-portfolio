@@ -3,108 +3,140 @@ import { getFiles, getFileBySlug } from "../../lib/mdx";
 import MDXComponents from "../../components/MDXComponents";
 import Layout from "../../components/Layout";
 
-import { HiOutlineEye } from "react-icons/hi";
-import { AiFillGithub } from "react-icons/ai";
-import { TbWorld } from "react-icons/tb";
-import { BsFillPersonFill } from "react-icons/bs";
 import "react-image-lightbox/style.css";
+import { useEffect, useState } from "react";
 
-const ProjectBlog = ({ mdxSource, frontMatter }) => {
+import useScrollSpy from "../../hooks/useScrollspy";
+import readingTime from "reading-time";
+import Link from "next/link";
+
+const ProjectBlog = ({ mdxSource, headings, frontMatter }) => {
     // console.log(frontMatter);
     // console.log(mdxSource);
+    // console.log(headings);
+
+    const activeSectionId = useScrollSpy();
 
     return (
         <Layout titlePage={frontMatter.title}>
             <section className="font-eina pt-3 pb-8">
                 <div className="layout ">
-                    <div className="relative mb-3 ">
-                        <img
-                            src={`/images/${frontMatter.banner}`}
-                            alt={frontMatter.title}
-                            className="w-full rounded-lg"
-                        />
-                    </div>
-                    <div className="mb-3">
-                        <div className="flex items-center justify-between mb-3">
-                            <h1 className="text-2xl md:text-4xl font-semibold from-violet-500 to-purple-500 via-fuchsia-500 bg-clip-text text-transparent bg-gradient-to-r">
+                    <section className="lg:grid lg:grid-cols-[auto,250px] lg:gap-8">
+                        <article>
+                            <h1 className="mb-8 text-2xl md:text-4xl font-semibold text-black dark:text-white dark:banner-glow">
                                 {frontMatter.title}
                             </h1>
-                            <h1 className="text-lg font-medium text-gray-600 dark:text-gray-300">
-                                {frontMatter.publishedAt}
-                            </h1>
-                        </div>
-                        <div className="flex flex-wrap mb-3">
-                            {frontMatter.techStacks
-                                .split(",")
-                                .map((techStack, index) => (
-                                    <span
-                                        key={index}
-                                        className="block mr-2 mb-2 sm:mb-0 bg-violet-200 text-violet-900 py-1 px-2 rounded-sm"
-                                    >
-                                        {techStack}
-                                    </span>
-                                ))}
-                        </div>
-                        <p className="text-gray-600 dark:text-gray-300 mb-3">
-                            {frontMatter.summary}
-                        </p>
-                        <div className="flex flex-wrap items-center ">
-                            <div className="flex items-center space-x-1 mr-1.5 sm:mr-2">
-                                <HiOutlineEye className="stroke-gray-600 dark:stroke-gray-300" />
-                                <span className="text-sm sm:text-base text-gray-600 dark:text-gray-300">
-                                    {frontMatter.readingTime.text}
-                                </span>
+                            <figure className="relative mb-6 ">
+                                <img
+                                    src={`/images/${frontMatter.banner}`}
+                                    alt={frontMatter.title}
+                                    className="w-full rounded-lg"
+                                />
+                            </figure>
+                            <MDXRemote
+                                {...mdxSource}
+                                components={MDXComponents}
+                            />
+                        </article>
+                        <aside className="hidden lg:block">
+                            <div className="sticky top-6">
+                                <div className="mb-6 p-4 pb-2 text-black dark:text-white bg-gray-primary dark:bg-[#143044] rounded-md">
+                                    <h3 className="text-lg mb-1 font-semibold dark:banner-glow">
+                                        Table Of Content
+                                    </h3>
+                                    <ul className="mb-5 space-y-1">
+                                        {headings.map((heading, index) => (
+                                            <li
+                                                key={heading.id}
+                                                className="before:marker-colored before:dark:marker-colored-glow ml-7"
+                                            >
+                                                <Link href={`#${heading.id}`}>
+                                                    <a
+                                                        className={`${
+                                                            activeSectionId ===
+                                                            heading.id
+                                                                ? "text-purple-primary dark:text-purple-primary"
+                                                                : "text-black dark:text-white text-white"
+                                                        } hover:text-purple-primary dark:hover:text-purple-primary transition focus:outline-none focus-visible:ring focus-visible:ring-violet-400`}
+                                                    >
+                                                        <span className="mr-1">
+                                                            {heading.level}
+                                                        </span>
+                                                        {heading.text}
+                                                    </a>
+                                                </Link>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                                <div className="mb-6 p-4 pb-2 text-black dark:text-white bg-gray-primary dark:bg-[#143044] rounded-md">
+                                    <h2 className="text-lg mb-1 font-semibold dark:banner-glow">
+                                        Details
+                                    </h2>
+                                    <ul className="mb-5 space-y-1">
+                                        <li className="before:marker-colored before:dark:marker-colored-glow ml-7">
+                                            Published at{" "}
+                                            {frontMatter.publishedAt}
+                                        </li>
+                                        <li className="before:marker-colored before:dark:marker-colored-glow ml-7">
+                                            {frontMatter.readingTime.text}
+                                        </li>
+                                        <li className="before:marker-colored before:dark:marker-colored-glow ml-7">
+                                            {frontMatter.githubLink === "-" ? (
+                                                <span className="">
+                                                    No Repository
+                                                </span>
+                                            ) : (
+                                                <a
+                                                    href={
+                                                        frontMatter.githubLink
+                                                    }
+                                                    target="_blank"
+                                                    rel="noreferrer"
+                                                    className="underline text-black dark:text-white text-white hover:text-purple-primary dark:hover:text-purple-primary transition focus:outline-none focus-visible:ring focus-visible:ring-violet-400"
+                                                >
+                                                    Repository Link
+                                                </a>
+                                            )}
+                                        </li>
+                                        <li className="before:marker-colored before:dark:marker-colored-glow ml-7">
+                                            {frontMatter.demoWebsite === "-" ? (
+                                                <span className="">
+                                                    No Demo Website
+                                                </span>
+                                            ) : (
+                                                <a
+                                                    href={
+                                                        frontMatter.demoWebsite
+                                                    }
+                                                    target="_blank"
+                                                    rel="noreferrer"
+                                                    className="underline text-black dark:text-white text-white hover:text-purple-primary dark:hover:text-purple-primary transition focus:outline-none focus-visible:ring focus-visible:ring-violet-400"
+                                                >
+                                                    Demo Website
+                                                </a>
+                                            )}
+                                        </li>
+                                    </ul>
+                                    <h2 className="text-lg mb-3 font-semibold dark:banner-glow">
+                                        Tags
+                                    </h2>
+                                    <ul className="flex flex-wrap">
+                                        {frontMatter.techStacks
+                                            .split(",")
+                                            .map((techStack, index) => (
+                                                <li
+                                                    key={index}
+                                                    className="text-sm block mr-2 mb-2 bg-black text-white dark:bg-[#26ffae] dark:text-black-primary dark:shadow-banner-glow-green py-1 px-2 rounded-md"
+                                                >
+                                                    {techStack}
+                                                </li>
+                                            ))}
+                                    </ul>
+                                </div>
                             </div>
-                            <span className="mr-1.5 sm:mr-2">-</span>
-                            <div className="flex items-center space-x-1 mr-1.5 sm:mr-2">
-                                <BsFillPersonFill className="stroke-gray-600 dark:stroke-gray-300" />
-                                <span className="text-sm sm:text-base text-gray-600 dark:text-gray-300">
-                                    {frontMatter.numberOfMember}{" "}
-                                    {frontMatter.numberOfMember === 1
-                                        ? "Person"
-                                        : "People"}
-                                </span>
-                            </div>
-                            <span className="mr-1.5 sm:mr-2">-</span>
-                            <div className="flex items-center space-x-1 mr-1.5 sm:mr-2">
-                                <AiFillGithub className="stroke-gray-600 dark:stroke-gray-300" />
-                                {frontMatter.githubLink === "-" ? (
-                                    <span className="text-sm sm:text-base text-gray-600 dark:text-gray-300">
-                                        No Repository
-                                    </span>
-                                ) : (
-                                    <a
-                                        href={frontMatter.githubLink}
-                                        target="_blank"
-                                        rel="noreferrer"
-                                        className="underline text-sm sm:text-base text-gray-600 dark:text-gray-300 hover:text-violet-500 dark:hover:text-violet-500 transition focus:outline-none focus-visible:ring focus-visible:ring-violet-400"
-                                    >
-                                        Repository
-                                    </a>
-                                )}
-                            </div>
-                            <span className="mr-1.5 sm:mr-2">-</span>
-                            <div className="flex items-center space-x-1 mr-1.5 sm:mr-2">
-                                <TbWorld className="stroke-gray-600 dark:stroke-gray-300" />
-                                {frontMatter.demoWebsite === "-" ? (
-                                    <span className="text-sm sm:text-base text-gray-600 dark:text-gray-300">
-                                        No Demo Website
-                                    </span>
-                                ) : (
-                                    <a
-                                        href={frontMatter.demoWebsite}
-                                        target="_blank"
-                                        rel="noreferrer"
-                                        className="underline text-sm text-gray-600 dark:text-gray-300 hover:text-violet-500 dark:hover:text-violet-500 transition focus:outline-none focus-visible:ring focus-visible:ring-violet-400"
-                                    >
-                                        Demo Website
-                                    </a>
-                                )}
-                            </div>
-                        </div>
-                    </div>
-                    <hr className="border-gray-300 dark:border-gray-600 " />
-                    <MDXRemote {...mdxSource} components={MDXComponents} />
+                        </aside>
+                    </section>
                 </div>
             </section>
         </Layout>
