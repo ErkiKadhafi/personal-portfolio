@@ -28,19 +28,19 @@ const timeline = [
     {
         year: 2022,
         experiences: [
-            <span>
+            <span key={1}>
                 Working as Frontend Developer intern at{" "}
                 <StyledLink href="https://abbauf.com/" isOpenNewWindow>
                     PT. Abbauf Mulia Konsultan Teknologi
                 </StyledLink>
             </span>,
-            <span>
+            <span key={2}>
                 Working as Frontend Developer intern at{" "}
                 <StyledLink href="https://igrow.asia/" isOpenNewWindow>
                     iGrow Asia
                 </StyledLink>
             </span>,
-            <span>
+            <span key={3}>
                 Awardee of Frontend Web Development Bootcamp Program by{" "}
                 <StyledLink
                     href="https://www.binaracademy.com/en/about"
@@ -49,7 +49,7 @@ const timeline = [
                     Binar Academy x Kampus Merdeka
                 </StyledLink>
             </span>,
-            <span>
+            <span key={4}>
                 Awardee of Fullstack Web Development Bootcamp Program by{" "}
                 <StyledLink
                     href="https://www.instagram.com/yaumidigital.school/"
@@ -63,7 +63,7 @@ const timeline = [
     {
         year: 2021,
         experiences: [
-            <span>
+            <span key={1}>
                 Finished a Frontend Web Development Bootcamp Program by{" "}
                 <StyledLink
                     href="https://sanbercode.com/bootcamp/react-js-web-frontend"
@@ -72,7 +72,7 @@ const timeline = [
                     Sanbercode Academy
                 </StyledLink>
             </span>,
-            <span>
+            <span key={2}>
                 Working as an admin for Algorithm and Programming Laboratory at{" "}
                 <StyledLink
                     href="https://www.its.ac.id/id/beranda/"
@@ -81,7 +81,7 @@ const timeline = [
                     Institut Technology of Sepuluh Nopember
                 </StyledLink>
             </span>,
-            <span>
+            <span key={3}>
                 Joined as Staff of External Affairs of{" "}
                 <StyledLink
                     href="https://www.instagram.com/hmtc_its/?hl=id"
@@ -95,7 +95,7 @@ const timeline = [
     {
         year: 2019,
         experiences: [
-            <span>
+            <span key={1}>
                 Being an Informatic Major student at{" "}
                 <StyledLink
                     href="https://www.its.ac.id/id/beranda/"
