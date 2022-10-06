@@ -113,7 +113,7 @@ export default function About() {
         <Layout titlePage="About">
             {/* ======== START ::: ABOUT SECTION ======== */}
             <section className="font-eina">
-                <div className="layout py-16 ">
+                <div className="layout py-4 md:py-16 ">
                     {/* ======== About me ======== */}
                     <article data-aos="fade-up" className="mb-10">
                         <h1 className="text-3xl md:text-4xl mb-5 font-semibold dark:banner-glow">
@@ -150,7 +150,7 @@ export default function About() {
                             {contacts.map((contact, index) => {
                                 return (
                                     <li
-                                        key={contact.desc}
+                                        key={index}
                                         className="before:marker-colored before:dark:marker-colored-glow ml-7"
                                     >
                                         <span>{contact.label}: </span>
@@ -207,9 +207,7 @@ export default function About() {
                                                     key={index}
                                                     className="before:marker-colored before:dark:marker-colored-glow ml-5"
                                                 >
-                                                    <Fragment key={index}>
-                                                        {exp}
-                                                    </Fragment>
+                                                    {exp}
                                                 </li>
                                             );
                                         })}
