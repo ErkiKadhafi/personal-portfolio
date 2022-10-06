@@ -16,11 +16,18 @@ const Projects = ({ projects }) => {
                 <div className="layout flex items-center min-h-[21.875rem] h-[50vh] ">
                     <div className="flex items-center ">
                         {/* ======== pulse bar ======== */}
-                        <div className="h-44 w-0.5 bg-gray-200 dark:bg-gray-800 rounded-full mr-8 overflow-hidden">
+                        <div
+                            data-aos="fade-right"
+                            className="h-44 w-0.5 bg-gray-200 dark:bg-gray-800 rounded-full mr-8 overflow-hidden"
+                        >
                             <div className="pulsing-animation h-1/4 w-full bg-black-primary dark:bg-white rounded-full"></div>
                         </div>
                         {/* ======== content ======== */}
-                        <div className="flex flex-col justify-center space-y-2 text-black-primary dark:text-white">
+                        <div
+                            data-aos="fade-left"
+                            data-aos-delay="400"
+                            className="flex flex-col justify-center space-y-2 text-black-primary dark:text-white"
+                        >
                             <h1 className="font-semibold text-banner md:text-banner-md dark:banner-glow">
                                 My{" "}
                                 <span className="dark:flicker-animation">
@@ -43,6 +50,8 @@ const Projects = ({ projects }) => {
                     <ul className="grid md:grid-cols-2 gap-4">
                         {projects.map((project, index) => (
                             <li
+                                data-aos="fade-up"
+                                data-aos-delay={`${(index + 1) * 2 * 100}`}
                                 key={index}
                                 className="group border dark:border-gray-700 hover:border-purple-primary dark:hover:border-purple-primary dark:hover:shadow-banner-glow rounded pt-8 pb-6 px-8 relative transition"
                             >

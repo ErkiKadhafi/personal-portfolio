@@ -4,11 +4,11 @@ import MDXComponents from "../../components/MDXComponents";
 import Layout from "../../components/Layout";
 
 import "react-image-lightbox/style.css";
-import { useEffect, useState } from "react";
-
 import useScrollSpy from "../../hooks/useScrollspy";
 import readingTime from "reading-time";
 import Link from "next/link";
+
+import StyledLink from "../../components/StyledLink";
 
 const ProjectBlog = ({ mdxSource, headings, frontMatter }) => {
     // console.log(frontMatter);
@@ -21,8 +21,8 @@ const ProjectBlog = ({ mdxSource, headings, frontMatter }) => {
         <Layout titlePage={frontMatter.title}>
             <section className="font-eina pt-3 pb-8">
                 <div className="layout ">
-                    <section className="lg:grid lg:grid-cols-[auto,250px] lg:gap-8">
-                        <article>
+                    <section className="grid lg:grid-cols-[auto,250px] gap-8">
+                        <article data-aos="fade-up">
                             <h1 className="mb-8 text-2xl md:text-4xl font-semibold text-black dark:text-white dark:banner-glow">
                                 {frontMatter.title}
                             </h1>
@@ -30,7 +30,7 @@ const ProjectBlog = ({ mdxSource, headings, frontMatter }) => {
                                 <img
                                     src={`/images/${frontMatter.banner}`}
                                     alt={frontMatter.title}
-                                    className="w-full rounded-lg"
+                                    className="w-full h-full rounded-lg"
                                 />
                             </figure>
                             <MDXRemote
@@ -38,8 +38,12 @@ const ProjectBlog = ({ mdxSource, headings, frontMatter }) => {
                                 components={MDXComponents}
                             />
                         </article>
-                        <aside className="hidden lg:block">
-                            <div className="sticky top-6">
+                        <aside className="block">
+                            <div
+                                data-aos="fade-up"
+                                data-aos-delay="200"
+                                className="sticky top-6"
+                            >
                                 <div className="mb-6 p-4 pb-2 text-black dark:text-white bg-gray-primary dark:bg-[#143044] rounded-md">
                                     <h3 className="text-lg mb-1 font-semibold dark:banner-glow">
                                         Table Of Content
@@ -56,7 +60,7 @@ const ProjectBlog = ({ mdxSource, headings, frontMatter }) => {
                                                             activeSectionId ===
                                                             heading.id
                                                                 ? "text-purple-primary dark:text-purple-primary"
-                                                                : "text-black dark:text-white text-white"
+                                                                : "text-black dark:text-white"
                                                         } hover:text-purple-primary dark:hover:text-purple-primary transition focus:outline-none focus-visible:ring focus-visible:ring-violet-400`}
                                                     >
                                                         <span className="mr-1">
@@ -93,7 +97,7 @@ const ProjectBlog = ({ mdxSource, headings, frontMatter }) => {
                                                     }
                                                     target="_blank"
                                                     rel="noreferrer"
-                                                    className="underline text-black dark:text-white text-white hover:text-purple-primary dark:hover:text-purple-primary transition focus:outline-none focus-visible:ring focus-visible:ring-violet-400"
+                                                    className="underline text-black dark:text-white hover:text-purple-primary dark:hover:text-purple-primary transition focus:outline-none focus-visible:ring focus-visible:ring-violet-400"
                                                 >
                                                     Repository Link
                                                 </a>
@@ -105,16 +109,14 @@ const ProjectBlog = ({ mdxSource, headings, frontMatter }) => {
                                                     No Demo Website
                                                 </span>
                                             ) : (
-                                                <a
+                                                <StyledLink
                                                     href={
                                                         frontMatter.demoWebsite
                                                     }
-                                                    target="_blank"
-                                                    rel="noreferrer"
-                                                    className="underline text-black dark:text-white text-white hover:text-purple-primary dark:hover:text-purple-primary transition focus:outline-none focus-visible:ring focus-visible:ring-violet-400"
+                                                    isOpenNewWindow
                                                 >
                                                     Demo Website
-                                                </a>
+                                                </StyledLink>
                                             )}
                                         </li>
                                     </ul>
