@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useTheme } from "next-themes";
 
 import { FaLaravel, FaReact } from "react-icons/fa";
+import { getIcon } from "../../lib/icon";
 
 const Projects = ({ projects }) => {
     const { theme } = useTheme();
@@ -16,15 +17,12 @@ const Projects = ({ projects }) => {
                 <div className="layout flex items-center min-h-[21.875rem] h-[50vh] ">
                     <div className="flex items-center ">
                         {/* ======== pulse bar ======== */}
-                        <div
-                            data-aos="fade-right"
-                            className="h-44 w-0.5 bg-gray-200 dark:bg-gray-800 rounded-full mr-8 overflow-hidden"
-                        >
+                        <div className="h-44 w-0.5 bg-gray-200 dark:bg-gray-800 rounded-full mr-8 overflow-hidden">
                             <div className="pulsing-animation h-1/4 w-full bg-black-primary dark:bg-white rounded-full"></div>
                         </div>
                         {/* ======== content ======== */}
                         <div
-                            data-aos="fade-left"
+                            data-aos="fade-up"
                             data-aos-delay="400"
                             className="flex flex-col justify-center space-y-2 text-black-primary dark:text-white"
                         >
@@ -82,8 +80,15 @@ const Projects = ({ projects }) => {
                                             {project.summary}
                                         </p>
                                         <div className="flex flex-wrap">
-                                            <FaLaravel className="text-3xl mr-4 mb-2" />
-                                            <FaLaravel className="text-3xl mr-4 mb-2" />
+                                            {project.techStacks
+                                                .split(",")
+                                                .map((techStack, index) => {
+                                                    return getIcon(
+                                                        techStack.trim(),
+                                                        index,
+                                                        "text-3xl mr-4 mb-2"
+                                                    );
+                                                })}
                                         </div>
                                     </a>
                                 </Link>

@@ -57,14 +57,13 @@ export default function Home({ projects }) {
                     <div className="flex items-center ">
                         {/* ======== pulse bar ======== */}
                         <div
-                            data-aos="fade-right"
                             className="h-44 w-0.5 bg-gray-200 dark:bg-gray-800 rounded-full mr-8 overflow-hidden"
                         >
                             <div className="pulsing-animation h-1/4 w-full bg-black-primary dark:bg-white rounded-full"></div>
                         </div>
                         {/* ======== content ======== */}
                         <div
-                            data-aos="fade-left"
+                            data-aos="fade-up"
                             data-aos-delay="400"
                             className="flex flex-col justify-center space-y-2 text-black-primary dark:text-white"
                         >
