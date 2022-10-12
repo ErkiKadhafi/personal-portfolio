@@ -65,7 +65,7 @@ const Navbar = () => {
                                 ))}
                                 <li>
                                     <a
-                                        href="https://drive.google.com/file/d/1XMjrR1SYo7PTXy3dIPQZNqeCMxAkNSgh/view?usp=sharing"
+                                        href="https://drive.google.com/file/d/1uS7a1-mNi-OnI16-RQnKT0z0PV14cq4z/view?usp=sharing"
                                         target="_blank"
                                         rel="noreferrer"
                                         className="py-2 px-6 rounded-full font-semibold transition duration-200 bg-gray-primary hover:bg-black hover:text-white dark:bg-[#143044] dark:hover:bg-[#26ffae] dark:hover:text-black-primary dark:hover:shadow-banner-glow-green focus:outline-none focus-visible:ring focus-visible:ring-purple-primary focus:dark:bg-[#26ffae] "
