@@ -33,7 +33,7 @@ const Projects = ({ projects }) => {
                                 </span>
                                 rojects
                             </h1>
-                            <p className="text-banner-desc md:text-banner-desc-md max-w-[32em] ">
+                            <p className="text-lg md:text-banner-desc-md max-w-[32em] ">
                                 I work with React and Laravel ecosystem, I love
                                 building projects that useful for others.
                             </p>

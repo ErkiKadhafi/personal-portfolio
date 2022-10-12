@@ -91,16 +91,14 @@ const ProjectBlog = ({ mdxSource, headings, frontMatter }) => {
                                                     No Repository
                                                 </span>
                                             ) : (
-                                                <a
+                                                <StyledLink
                                                     href={
                                                         frontMatter.githubLink
                                                     }
-                                                    target="_blank"
-                                                    rel="noreferrer"
-                                                    className="underline text-black dark:text-white hover:text-purple-primary dark:hover:text-purple-primary transition focus:outline-none focus-visible:ring focus-visible:ring-violet-400"
+                                                    isOpenNewWindow
                                                 >
                                                     Repository Link
-                                                </a>
+                                                </StyledLink>
                                             )}
                                         </li>
                                         <li className="before:marker-colored before:dark:marker-colored-glow ml-7">

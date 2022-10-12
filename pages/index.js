@@ -1,54 +1,30 @@
 import Layout from "../components/Layout";
-import Image from "next/image";
-import { getAllFilesFrontMatter } from "../lib/mdx";
-import { useTheme } from "next-themes";
 
-import { FaLaravel, FaReact } from "react-icons/fa";
-import { AiOutlineHtml5 } from "react-icons/ai";
-import { TbBrandNextjs } from "react-icons/tb";
-import {
-    SiTailwindcss,
-    SiChakraui,
-    SiAlpinedotjs,
-    SiPusher,
-} from "react-icons/si";
-import { FaCss3Alt, FaSass } from "react-icons/fa";
+import Image from "next/image";
 import Link from "next/link";
+
+import { getAllFilesFrontMatter } from "../lib/mdx";
+import { getIcon } from "../lib/icon";
 
 const myTechstack = [
     {
         header: "Markup and Styling",
-        techStacks: [
-            <AiOutlineHtml5 key={1} className="mr-1.5 mb-2" />,
-            <FaCss3Alt key={2} className="mr-1.5 mb-2" />,
-            <FaSass key={3} className="mr-1.5 mb-2" />,
-            <SiTailwindcss key={4} className="mr-1.5 mb-2" />,
-            <SiChakraui key={5} className="mr-1.5 mb-2" />,
-        ],
+        techStacks: ["HTML", "CSS", "Sass", "TailwindCSS", "ChakraUI"],
         desc: "I used to work with native CSS and Sass for easier syntax. Then since I know TailwindCSS, I use them as my default styling tools, because it's light and easy to use. For React styled components library, I use ChakraUI.",
     },
     {
         header: "Frontend Dev",
-        techStacks: [
-            <FaReact key={1} className="mr-1.5 mb-2" />,
-            <TbBrandNextjs key={2} className="mr-1.5 mb-2" />,
-            <SiAlpinedotjs key={3} className="mr-1.5 mb-2" />,
-        ],
+        techStacks: ["ReactJs", "NextJs", "AlpineJs"],
         desc: "I work with ReactJs and NextJs as my main tools in Javascript environment. I use AlpineJs to work when working with Laravel Blade templating engine.",
     },
     {
         header: "Backend Dev",
-        techStacks: [
-            <FaLaravel key={1} className="mr-1 mb-2" />,
-            <SiPusher key={2} className="mr-1 mb-2" />,
-        ],
+        techStacks: ["Laravel", "Pusher"],
         desc: "I use Laravel as my PHP framework for backend development and Pusher as web socket library for Laravel.",
     },
 ];
 
 export default function Home({ projects }) {
-    const { theme } = useTheme();
-
     return (
         <Layout titlePage="Home">
             {/* ======== START ::: HERO SECTION ======== */}
@@ -56,9 +32,7 @@ export default function Home({ projects }) {
                 <div className="layout flex items-center min-h-[21.875rem] h-[70vh] ">
                     <div className="flex items-center ">
                         {/* ======== pulse bar ======== */}
-                        <div
-                            className="h-44 w-0.5 bg-gray-200 dark:bg-gray-800 rounded-full mr-8 overflow-hidden"
-                        >
+                        <div className="h-44 w-0.5 bg-gray-200 dark:bg-gray-800 rounded-full mr-8 overflow-hidden">
                             <div className="pulsing-animation h-1/4 w-full bg-black-primary dark:bg-white rounded-full"></div>
                         </div>
                         {/* ======== content ======== */}
@@ -77,7 +51,7 @@ export default function Home({ projects }) {
                                 </span>{" "}
                                 Developer.
                             </p>
-                            <p className="text-banner-desc md:text-banner-desc-md max-w-[32em] ">
+                            <p className="text-lg md:text-banner-desc-md max-w-[32em] ">
                                 I work with React and Laravel ecosystem, I love
                                 building projects that useful for others.
                             </p>
@@ -110,14 +84,9 @@ export default function Home({ projects }) {
                                     {item.header}
                                 </h3>
                                 <div className="flex flex-wrap text-white text-3xl ">
-                                    {item.techStacks.map((icon, index) => (
-                                        <span
-                                            key={index}
-                                            className="fill-white"
-                                        >
-                                            {icon}
-                                        </span>
-                                    ))}
+                                    {item.techStacks.map((icon, index) =>
+                                        getIcon(icon, index, "mr-1.5 mb-2")
+                                    )}
                                 </div>
                                 <p className="mb-4">{item.desc}</p>
                             </li>
@@ -174,8 +143,15 @@ export default function Home({ projects }) {
                                             {project.summary}
                                         </p>
                                         <div className="flex flex-wrap">
-                                            <FaLaravel className="text-3xl mr-4 mb-2" />
-                                            <FaLaravel className="text-3xl mr-4 mb-2" />
+                                            {project.techStacks
+                                                .split(",")
+                                                .map((techStack, index) => {
+                                                    return getIcon(
+                                                        techStack.trim(),
+                                                        index,
+                                                        "text-3xl mr-4 mb-2"
+                                                    );
+                                                })}
                                         </div>
                                     </a>
                                 </Link>
