@@ -3,9 +3,7 @@ import Image from "next/image";
 import { getAllFilesFrontMatter } from "../../lib/mdx";
 import Link from "next/link";
 import { useTheme } from "next-themes";
-
-import { FaLaravel, FaReact } from "react-icons/fa";
-import { getIcon } from "../../lib/icon";
+import { Icon } from "../../components/Icon";
 
 const Projects = ({ projects }) => {
     const { theme } = useTheme();
@@ -79,17 +77,26 @@ const Projects = ({ projects }) => {
                                         <p className="mb-6">
                                             {project.summary}
                                         </p>
-                                        <div className="flex flex-wrap">
+                                        <ul className="flex flex-wrap">
                                             {project.techStacks
                                                 .split(",")
                                                 .map((techStack, index) => {
-                                                    return getIcon(
-                                                        techStack.trim(),
-                                                        index,
-                                                        "text-3xl mr-4 mb-2"
+                                                    return (
+                                                        <li
+                                                            key={index}
+                                                            className="cursor-pointer text-3xl mr-4 mb-2"
+                                                        >
+                                                            <Icon
+                                                                iconName={techStack.trim()}
+                                                                tooltip={techStack.trim()}
+                                                                darkTooltip={
+                                                                    true
+                                                                }
+                                                            />
+                                                        </li>
                                                     );
                                                 })}
-                                        </div>
+                                        </ul>
                                     </a>
                                 </Link>
                             </li>

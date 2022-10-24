@@ -130,6 +130,14 @@ const Navbar = () => {
                             <AiOutlineClose className="fill-black-primary dark:fill-white group-hover:fill-purple-primary text-xl " />
                         </button>
                     </div>
+                    <a
+                        href="https://drive.google.com/file/d/1uS7a1-mNi-OnI16-RQnKT0z0PV14cq4z/view?usp=sharing"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="mt-4 flex justify-center w-full py-3 px-6 rounded-full font-semibold transition duration-200 bg-gray-primary hover:bg-black hover:text-white dark:bg-[#001e2f] dark:hover:bg-[#26ffae] dark:hover:text-black-primary dark:hover:shadow-banner-glow-green focus:outline-none focus-visible:ring focus-visible:ring-purple-primary focus:dark:bg-[#26ffae] "
+                    >
+                        <span>My Resume</span>
+                    </a>
                     <button
                         onClick={() =>
                             setTheme(theme === "dark" ? "light" : "dark")

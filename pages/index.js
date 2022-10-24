@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { getAllFilesFrontMatter } from "../lib/mdx";
-import { getIcon } from "../lib/icon";
+import { Icon } from "../components/Icon";
 
 const myTechstack = [
     {
@@ -83,11 +83,19 @@ export default function Home({ projects }) {
                                     </span>{" "}
                                     {item.header}
                                 </h3>
-                                <div className="flex flex-wrap text-white text-3xl ">
-                                    {item.techStacks.map((icon, index) =>
-                                        getIcon(icon, index, "mr-1.5 mb-2")
-                                    )}
-                                </div>
+                                <ul className="flex flex-wrap text-white text-3xl ">
+                                    {item.techStacks.map((icon, index) => (
+                                        <li
+                                            key={index}
+                                            className="cursor-pointer mr-1.5 mb-2 block"
+                                        >
+                                            <Icon
+                                                iconName={icon}
+                                                tooltip={icon}
+                                            />
+                                        </li>
+                                    ))}
+                                </ul>
                                 <p className="mb-4">{item.desc}</p>
                             </li>
                         ))}
@@ -142,17 +150,26 @@ export default function Home({ projects }) {
                                         <p className="mb-6">
                                             {project.summary}
                                         </p>
-                                        <div className="flex flex-wrap">
+                                        <ul className="flex flex-wrap">
                                             {project.techStacks
                                                 .split(",")
                                                 .map((techStack, index) => {
-                                                    return getIcon(
-                                                        techStack.trim(),
-                                                        index,
-                                                        "text-3xl mr-4 mb-2"
+                                                    return (
+                                                        <li
+                                                            key={index}
+                                                            className="cursor-pointer text-3xl mr-4 mb-2"
+                                                        >
+                                                            <Icon
+                                                                iconName={techStack.trim()}
+                                                                tooltip={techStack.trim()}
+                                                                darkTooltip={
+                                                                    true
+                                                                }
+                                                            />
+                                                        </li>
                                                     );
                                                 })}
-                                        </div>
+                                        </ul>
                                     </a>
                                 </Link>
                             </li>
