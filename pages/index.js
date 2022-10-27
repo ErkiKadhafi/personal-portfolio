@@ -5,6 +5,7 @@ import Link from "next/link";
 
 import { getAllFilesFrontMatter } from "../lib/mdx";
 import { Icon } from "../components/Icon";
+import { getBase64 } from "../lib/base64";
 
 const myTechstack = [
     {
@@ -24,7 +25,7 @@ const myTechstack = [
     },
 ];
 
-export default function Home({ projects }) {
+export default function Home({ projectsWithEncodedBanner: projects }) {
     return (
         <Layout titlePage="Home">
             {/* ======== START ::: HERO SECTION ======== */}
@@ -131,14 +132,20 @@ export default function Home({ projects }) {
                             >
                                 <Link href={`/projects/${project.slug}`}>
                                     <a className="dark:text-white">
-                                        <div className="w-8 h-2 bg-[#26ffae] mb-2"></div>
-                                        <div className="mb-4 md:mb-0 md:w-[70%] lg:w-[50%] md:-translate-x-1/2 md:-translate-y-1/2 md:absolute -left-4 top-1/2">
-                                            <img
+                                        <div className="w-8 h-2 bg-[#26ffae] mb-4"></div>
+                                        <figure className="mb-3 md:mb-0 md:w-[70%] lg:w-[50%] md:-translate-x-1/2 md:-translate-y-1/2 md:absolute md:-left-4 md:top-1/2 rounded border border dark:border-gray-700 group-hover:border-purple-primary dark:group-hover:border-purple-primary dark:group-hover:shadow-banner-glow shadow-custom">
+                                            <Image
                                                 src={`/images/${project.banner}`}
                                                 alt="preview web"
-                                                className="rounded border border dark:border-gray-700 group-hover:border-purple-primary dark:group-hover:border-purple-primary dark:group-hover:shadow-banner-glow h-full w-full shadow-custom"
+                                                width={2000}
+                                                height={1000}
+                                                objectFit="cover"
+                                                placeholder="blur"
+                                                blurDataURL={
+                                                    project.base64Banner
+                                                }
                                             />
-                                        </div>
+                                        </figure>
                                         <h3
                                             className={`text-black dark:text-white dark:group-hover:banner-glow dark:group-hover:text-white group-hover:text-purple-primary-offset transition text-[1.75rem] md:text-[2.188rem] font-semibold mb-1`}
                                         >
@@ -186,5 +193,15 @@ export async function getStaticProps() {
     // fetch all the projects
     let projects = await getAllFilesFrontMatter("projects");
     projects = projects.filter((project) => project.isBigProject);
-    return { props: { projects } };
+
+    // get base64 banner
+    const projectsWithEncodedBanner = await Promise.all(
+        projects.map(async (project) => {
+            return {
+                ...project,
+                base64Banner: await getBase64(project.banner),
+            };
+        })
+    );
+    return { props: { projectsWithEncodedBanner } };
 }

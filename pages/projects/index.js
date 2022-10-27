@@ -4,8 +4,9 @@ import { getAllFilesFrontMatter } from "../../lib/mdx";
 import Link from "next/link";
 import { useTheme } from "next-themes";
 import { Icon } from "../../components/Icon";
+import { getBase64 } from "../../lib/base64";
 
-const Projects = ({ projects }) => {
+const Projects = ({ projectsWithEncodedBanner: projects }) => {
     const { theme } = useTheme();
 
     return (
@@ -53,15 +54,20 @@ const Projects = ({ projects }) => {
                             >
                                 <Link href={`/projects/${project.slug}`}>
                                     <a className="dark:text-white focus:outline-none focus-visible:ring focus-visible:ring-violet-400">
-                                        <div className="w-8 h-2 bg-[#26ffae] mb-2"></div>
-                                        <div className="h-56 relative border dark:border-gray-700 group-hover:border-purple-primary dark:group-hover:border-purple-primary dark:group-hover:shadow-banner-glow ">
+                                        <div className="w-8 h-2 bg-[#26ffae] mb-4"></div>
+                                        <figure className="mb-3 rounded border border dark:border-gray-700 group-hover:border-purple-primary dark:group-hover:border-purple-primary dark:group-hover:shadow-banner-glow shadow-custom">
                                             <Image
-                                                layout="fill"
                                                 src={`/images/${project.banner}`}
                                                 alt="preview web"
-                                                className="object-cover rounded border h-full w-full shadow-custom"
+                                                width={2000}
+                                                height={1000}
+                                                objectFit="cover"
+                                                placeholder="blur"
+                                                blurDataURL={
+                                                    project.base64Banner
+                                                }
                                             />
-                                        </div>
+                                        </figure>
                                         <h3
                                             className={`${
                                                 theme === "dark"
@@ -114,5 +120,15 @@ export default Projects;
 export async function getStaticProps() {
     // fetch all the projects
     const projects = await getAllFilesFrontMatter("projects");
-    return { props: { projects } };
+
+    // get base64 banner
+    const projectsWithEncodedBanner = await Promise.all(
+        projects.map(async (project) => {
+            return {
+                ...project,
+                base64Banner: await getBase64(project.banner),
+            };
+        })
+    );
+    return { props: { projectsWithEncodedBanner } };
 }

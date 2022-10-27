@@ -9,6 +9,8 @@ import readingTime from "reading-time";
 import Link from "next/link";
 
 import StyledLink from "../../components/StyledLink";
+import Image from "next/image";
+import { getBase64 } from "../../lib/base64";
 
 const ProjectBlog = ({ mdxSource, headings, frontMatter }) => {
     // console.log(frontMatter);
@@ -26,10 +28,15 @@ const ProjectBlog = ({ mdxSource, headings, frontMatter }) => {
                             <h1 className="mb-8 text-2xl md:text-4xl font-semibold text-black dark:text-white dark:banner-glow">
                                 {frontMatter.title}
                             </h1>
-                            <figure className="relative mb-6 ">
-                                <img
+                            <figure className="mb-6">
+                                <Image
                                     src={`/images/${frontMatter.banner}`}
                                     alt={frontMatter.title}
+                                    width={3000}
+                                    height={1500}
+                                    placeholder="blur"
+                                    blurDataURL={frontMatter.base64Banner}
+                                    objectFit="cover"
                                     className="w-full h-full rounded-lg"
                                 />
                             </figure>
@@ -157,7 +164,13 @@ export async function getStaticPaths() {
     };
 }
 export async function getStaticProps({ params }) {
-    const post = await getFileBySlug("projects", params.slug);
+    let post = await getFileBySlug("projects", params.slug);
+    // console.log(post);
+    post.frontMatter = {
+        ...post.frontMatter,
+        base64Banner: await getBase64(post.frontMatter.banner),
+    };
+    post = { ...post };
 
     return { props: post };
 }

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Lightbox from "react-image-lightbox";
 
+import NextImage from "next/image";
 import Link from "next/link";
 
 const Image = ({ src, ...props }) => {
@@ -8,7 +9,16 @@ const Image = ({ src, ...props }) => {
 
     return (
         <>
-            <img {...props} src={src} onClick={() => setIsOpen(true)} />
+            <figure>
+                <NextImage
+                    {...props}
+                    src={src}
+                    width={2000}
+                    height={1000}
+                    onClick={() => setIsOpen(true)}
+                    alt="web preview"
+                />
+            </figure>
             {isOpen && (
                 <Lightbox
                     mainSrc={src}
