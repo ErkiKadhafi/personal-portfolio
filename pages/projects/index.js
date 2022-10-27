@@ -4,7 +4,7 @@ import { getAllFilesFrontMatter } from "../../lib/mdx";
 import Link from "next/link";
 import { useTheme } from "next-themes";
 import { Icon } from "../../components/Icon";
-import { getBase64 } from "../../lib/base64";
+// import { getBase64 } from "../../lib/base64";
 
 const Projects = ({ projectsWithEncodedBanner: projects }) => {
     const { theme } = useTheme();
@@ -62,10 +62,10 @@ const Projects = ({ projectsWithEncodedBanner: projects }) => {
                                                 width={2000}
                                                 height={1000}
                                                 objectFit="cover"
-                                                placeholder="blur"
-                                                blurDataURL={
-                                                    project.base64Banner
-                                                }
+                                                // placeholder="blur"
+                                                // blurDataURL={
+                                                //     project.base64Banner
+                                                // }
                                             />
                                         </figure>
                                         <h3
@@ -122,13 +122,14 @@ export async function getStaticProps() {
     const projects = await getAllFilesFrontMatter("projects");
 
     // get base64 banner
-    const projectsWithEncodedBanner = await Promise.all(
-        projects.map(async (project) => {
-            return {
-                ...project,
-                base64Banner: await getBase64(project.banner),
-            };
-        })
-    );
+    // const projectsWithEncodedBanner = await Promise.all(
+    //     projects.map(async (project) => {
+    //         return {
+    //             ...project,
+    //             base64Banner: await getBase64(project.banner),
+    //         };
+    //     })
+    // );
+    const projectsWithEncodedBanner = projects;
     return { props: { projectsWithEncodedBanner } };
 }

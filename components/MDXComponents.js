@@ -6,10 +6,10 @@ import Link from "next/link";
 
 const Image = ({ src, ...props }) => {
     const [isOpen, setIsOpen] = useState(false);
-    const toBase64 = (str) =>
-        typeof window === "undefined"
-            ? Buffer.from(str).toString("base64")
-            : window.btoa(str);
+    // const toBase64 = (str) =>
+    //     typeof window === "undefined"
+    //         ? Buffer.from(str).toString("base64")
+    //         : window.btoa(str);
 
     return (
         <>
@@ -21,8 +21,8 @@ const Image = ({ src, ...props }) => {
                     height={1000}
                     onClick={() => setIsOpen(true)}
                     alt="web preview"
-                    placeholder="blur"
-                    blurDataURL={`data:image/png;base64,${toBase64(src)}`}
+                    // placeholder="blur"
+                    // blurDataURL={`data:image/png;base64,${toBase64(src)}`}
                 />
             </div>
             {isOpen && (

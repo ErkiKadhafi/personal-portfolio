@@ -5,7 +5,7 @@ import Link from "next/link";
 
 import { getAllFilesFrontMatter } from "../lib/mdx";
 import { Icon } from "../components/Icon";
-import { getBase64 } from "../lib/base64";
+// import { getBase64 } from "../lib/base64";
 
 const myTechstack = [
     {
@@ -140,10 +140,10 @@ export default function Home({ projectsWithEncodedBanner: projects }) {
                                                 width={2000}
                                                 height={1000}
                                                 objectFit="cover"
-                                                placeholder="blur"
-                                                blurDataURL={
-                                                    project.base64Banner
-                                                }
+                                                // placeholder="blur"
+                                                // blurDataURL={
+                                                //     project.base64Banner
+                                                // }
                                             />
                                         </figure>
                                         <h3
@@ -195,13 +195,14 @@ export async function getStaticProps() {
     projects = projects.filter((project) => project.isBigProject);
 
     // get base64 banner
-    const projectsWithEncodedBanner = await Promise.all(
-        projects.map(async (project) => {
-            return {
-                ...project,
-                base64Banner: await getBase64(project.banner),
-            };
-        })
-    );
+    // const projectsWithEncodedBanner = await Promise.all(
+    //     projects.map(async (project) => {
+    //         return {
+    //             ...project,
+    //             base64Banner: await getBase64(project.banner),
+    //         };
+    //     })
+    // );
+    const projectsWithEncodedBanner = projects;
     return { props: { projectsWithEncodedBanner } };
 }
