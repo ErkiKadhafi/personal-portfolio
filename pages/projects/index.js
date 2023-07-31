@@ -121,15 +121,6 @@ export async function getStaticProps() {
     // fetch all the projects
     const projects = await getAllFilesFrontMatter("projects");
 
-    // get base64 banner
-    // const projectsWithEncodedBanner = await Promise.all(
-    //     projects.map(async (project) => {
-    //         return {
-    //             ...project,
-    //             base64Banner: await getBase64(project.banner),
-    //         };
-    //     })
-    // );
     const projectsWithEncodedBanner = projects;
     return { props: { projectsWithEncodedBanner } };
 }
