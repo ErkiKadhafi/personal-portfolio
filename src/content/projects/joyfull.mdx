@@ -1,0 +1,108 @@
+---
+title: JoyFull
+createdAt: November 2021
+summary: This website lets you organize games and movies. It lets you see and add your own favorite games and movies.
+thumbnail: "joyfull/thumbnail.png"
+isBigProject: true
+techStacks:
+  - react
+  - chakraui
+repoLink: "https://gitlab.com/ErkiKadhafi/bds-sanbercode-reactjs-batch-29/-/tree/main/final-project"
+demoLink: "https://quizzical-aryabhata-3c8ce0.netlify.app/"
+numberOfPeople: 1
+---
+
+## Project Purpose
+
+JoyFull is a website that offers recommendations for movies and games. You can explore lists of movies
+and games along with their descriptions. Additionally, there's a dashboard where you can contribute by
+suggesting new movie or game recommendations. Although the interface might appear a bit unconventional
+due to it being my first React project, I believe it remains an enjoyable and fulfilling project to create.
+
+## About This Project
+
+I created this website as part of my final assignment at <StyledLink openNewTab href="https://sanbercode.com/bootcamp/react-js-web-frontend">Sanber Bootcamp Academy</StyledLink>. 
+Its main goal is to display and handle data obtained from a designated API provided by the program. 
+The API is shared among fellow participants, which sometimes leads to certain data being unavailable or incomplete.
+
+JoyFull represents my debut encounter with using the React Component Library called `ChakraUI`.
+While we had the flexibility to opt for other libraries such as `Ant Design` and `Material UI`,
+I found the latter two quite intricate and challenging to adapt to my needs. This decision to use
+ChakraUI was influenced by its user-friendly nature and suitability for customization.
+
+The website also incorporates user authentication and authorization via a straightforward registration
+and login system. To manage cookies, the bootcamp recommended the `js-cookie` package.
+
+In terms of movie and game management, I tackled the implementation of search and sort functionalities.
+This presented a significant initial challenge as I embarked on my journey learning React. Initially, the `ChakraUI`
+library lacked a built-in Table Component with these capabilities, so I took it upon myself to create a custom solution.
+
+Despite the learning curve, the project remains a source of enjoyment and learning. It offered valuable
+insights into `React` concepts like `state`, its manipulation, as well as API fetching using `Axios`.
+While the code might appear a bit unorganized, it effectively serves its intended purpose without any
+technical glitches.
+
+## Features
+
+These are the features in this site
+
+- CRUD for Movies and Games: Easily manage the content of movies and games, including creating, reading, updating, and deleting entries.
+- Sorting for Each Movies and Games Table: Arrange movies and games in a specific order for better organization and browsing.
+- Pagination for Each Movies and Games Table: Divide extensive lists of movies and games into separate pages, making navigation smoother.
+- Searching for Each Movies and Games Table: Quickly locate specific movies and games using a search feature.
+- Authentication and Authorization: Implement a system that controls access and permissions, ensuring only authorized users can perform certain actions.
+
+## App demo
+
+You can click it for better view.
+
+<ImageGallery>
+  {/* left slot  */}
+  <div className="flex-col space-y-4">
+    <LightBox
+      imageSrc="joyfull/home-page-1.png"
+      imageAlt="Home page before login."
+      customSize={true}
+      width={1920}
+      height={1684}
+    />
+    <LightBox
+      imageSrc="joyfull/register-page.png"
+      imageAlt="Register page."
+      customSize={true}
+      width={1920}
+      height={894}
+    />
+    <LightBox
+      imageSrc="joyfull/management-page.png"
+      imageAlt="Movies management page."
+      customSize={true}
+      width={1920}
+      height={1732}
+    />
+  </div>
+  {/* right slot  */}
+  <div className="flex-col space-y-4">
+    <LightBox
+      imageSrc="joyfull/home-page-2.png"
+      imageAlt="Home page after login."
+      customSize={true}
+      width={1920}
+      height={1684}
+    />
+    <LightBox
+      imageSrc="joyfull/login-page.png"
+      imageAlt="Login page."
+      customSize={true}
+      width={1920}
+      height={894}
+    />
+    <LightBox
+      imageSrc="joyfull/form-page.png"
+      imageAlt="Form movie page."
+      customSize={true}
+      width={1920}
+      height={926}
+    />
+  </div>
+</ImageGallery>

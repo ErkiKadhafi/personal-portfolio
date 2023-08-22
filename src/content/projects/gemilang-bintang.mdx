@@ -1,0 +1,91 @@
+---
+title: Gemilang Bintang
+createdAt: Aug 2022
+summary: A dedicated company profile page that provides detailed information about their products and offerings.
+thumbnail: "gemilang-bintang/thumbnail.png"
+isBigProject: true
+techStacks:
+  - next
+  - chakraui
+repoLink: "-"
+demoLink: "https://www.gemilangbintang.com/"
+numberOfPeople: 3
+---
+
+## Project Purpose
+
+This website was made to give people a clear picture of the company and what they sell.
+It's like a digital brochure that tells you about the company's background and values,
+and it also shows you all the different things they have for sale. Whether you want to
+know more about the company or see what they're selling, this website is here to help you explore and learn.
+
+## About This Project
+
+This website marked my initial venture into Next.js projects. A friend entrusted me with this endeavor,
+and together, we formed a team of three individuals. The project's requirements were refreshingly
+straightforward: to showcase the company's details, their assortment of products, and to incorporate a contact
+form for emailing them.
+
+One notable facet was the company's request for a bilingual feature, which was a novel challenge for me.
+To achieve this, we employed `React Context` and designed a constant variable containing both languages for
+seamless word translation. This ingenious approach also ensured that future developers could effortlessly
+modify the information by adjusting the variable's contents.
+
+Our journey also led us to embrace the recently introduced `React Component Library` Chakra UI. Its user-friendly
+nature, especially for beginners like us, played a pivotal role in our selection. The project itself was a joyful
+experience, and it brought about our inaugural compensation for our collective efforts.
+
+Through this venture, I gained invaluable insights into various aspects. I deepened my understanding of Next.js
+and honed my ability to establish project frameworks, delve into server-side rendering through Next.js, and navigate
+the intricacies of deploying applications using this framework.
+
+## Features
+
+We integrated several noteworthy features into the website, enhancing its functionality and user experience:
+
+- Dark Mode: Users can toggle between light and dark themes, allowing for comfortable browsing in different environments.
+- Dual Language (Bahasa and English): We successfully incorporated a language-switching feature, enabling users to seamlessly switch between Bahasa and English content.
+- Smooth Component Animations: Transitions between different sections of the website are embellished with fluid animations, adding a dynamic touch to the browsing experience.
+- Interactive Contact Form: A user-friendly contact form was integrated, facilitating easy communication with the company via email. This feature streamlines the process of getting in touch and seeking assistance.
+- These additions not only enrich the website's functionality but also contribute to a more engaging and user-centric browsing encounter.
+
+## App demo
+
+You can click it for better view.
+
+<ImageGallery>
+  {/* left slot  */}
+  <div className="flex-col space-y-4">
+    <LightBox
+      imageSrc="gemilang-bintang/home-page.png"
+      imageAlt="Home page"
+      customSize={true}
+      width={1920}
+      height={3787}
+    />
+    <LightBox
+      imageSrc="gemilang-bintang/contact us-page.png"
+      imageAlt="Contact us page"
+      customSize={true}
+      width={1920}
+      height={2448}
+    />
+  </div>
+  {/* right slot  */}
+  <div className="flex-col space-y-4">
+    <LightBox
+      imageSrc="gemilang-bintang/about-page.png"
+      imageAlt="About page"
+      customSize={true}
+      width={1920}
+      height={4936}
+    />
+    <LightBox
+      imageSrc="gemilang-bintang/services-page.png"
+      imageAlt="Services page"
+      customSize={true}
+      width={1920}
+      height={1212}
+    />
+  </div>
+</ImageGallery>

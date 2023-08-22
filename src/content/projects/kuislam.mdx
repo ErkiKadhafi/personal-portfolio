@@ -1,0 +1,263 @@
+---
+title: Kuislam
+createdAt: January 2022
+summary: An online quiz platform for users to test their understanding of various aspects of Islam through interactive questions.
+thumbnail: "kuislam/thumbnail.png"
+isBigProject: true
+techStacks:
+  - laravel
+  - tailwind
+  - pusher
+  - jquery
+repoLink: "-"
+demoLink: "-"
+numberOfPeople: 7
+---
+
+## Project Purpose
+
+The project's main goal was to develop an engaging platform for learning about Islam.
+We aimed to make the learning experience both enjoyable and informative. To achieve this,
+we adopted a quiz application approach. Quizzes are not only enjoyable but also encourage friendly
+competition with our peers as we tackle the questions. By incorporating Islamic questions into the quizzes,
+we've crafted a method to learn about Islamic knowledge in an entertaining manner.
+
+This projects was a final assignment for a full-stack bootcamp at <StyledLink openNewTab href="https://www.instagram.com/yaumidigital.school/">Yaumi Digital School</StyledLink>.
+We worked in a team of 10 people, with 3 focusing on design (UI/UX team) and 7 on the technical side (Fullstack Team).
+I was the **leader** of the fullstack team.
+
+## About This Project
+
+We had a three-month window to complete the project. This timeframe posed a challenge due to the website's complexity,
+involving various components, a considerable number of pages, and some intricate features.
+
+Despite the difficulties, we managed to create the website and it showcased our hard work and dedication.
+My role as the technical team leader involved coordinating everyone's work to ensure we finished the project
+successfully.
+
+## Features
+
+Kuislam revolves around two core features: the quiz and the question management dashboard. The quiz function
+takes inspiration from platforms like `Kahoot`, with a key distinction. While `Kahoot` typically presents questions
+on a single shared screen, often via an external monitor, Kuislam delivers questions directly to each user's screen.
+This unique approach demands real-time synchronization, ensuring that every user simultaneously accesses the same
+question.
+
+This dynamic creates a more intricate implementation process due to the need for seamless question synchronization
+across multiple user interfaces.
+
+### Authentication
+
+To initiate a quiz, users need to establish an account. Within this feature, users have the flexibility to
+create an account either by providing a username and password manually or by opting for the convenient method
+of `Google OAuth`.
+
+<ImageGallery>
+  {/* left slot  */}
+  <div className="flex-col space-y-4">
+    <LightBox
+      imageSrc="kuislam/login-page.png"
+      imageAlt="Login page."
+      customSize={true}
+      width={1920}
+      height={944}
+    />
+  </div>
+  {/* right slot  */}
+  <div className="flex-col space-y-4">
+    <LightBox
+      imageSrc="kuislam/register-page.png"
+      imageAlt="Register page."
+      customSize={true}
+      width={1920}
+      height={924}
+    />
+  </div>
+</ImageGallery>
+
+### Quiz Room
+
+To kick off the quiz, a user selects a topic from four available options.
+Each topic consists of a specific set of questions. Once a user picks a question set, a room is generated,
+with that user becoming the host. Every room is assigned a unique code, enabling others to join by entering this code.
+This is where `Web Socket` technology comes in, ensuring live synchronization.
+
+`Web Sockets` are integrated into each room, serving as real-time communication channels. Thanks to `Web Sockets`,
+rooms stay updated and instantly inform users of any changes. For example, when additional participants enter the room,
+the interface automatically updates to show their presence, without the need for page refreshing.
+Once all participants are prepared, the quiz can be launched.
+
+<ImageGallery>
+  {/* left slot  */}
+  <div className="flex-col space-y-4">
+    <LightBox
+      imageSrc="kuislam/explore-page.png"
+      imageAlt="Explore page."
+      customSize={true}
+      width={1920}
+      height={2360}
+    />
+  </div>
+  {/* right slot  */}
+  <div className="flex-col space-y-4">
+    <LightBox
+      imageSrc="kuislam/home-page.png"
+      imageAlt="Home page."
+      customSize={true}
+      width={1920}
+      height={894}
+    />
+    <LightBox
+      imageSrc="kuislam/room-page.png"
+      imageAlt="Room page."
+      customSize={true}
+      width={1920}
+      height={894}
+    />
+    <LightBox
+      imageSrc="kuislam/room-joined-page.png"
+      imageAlt="Room joined page."
+      customSize={true}
+      width={1920}
+      height={940}
+    />
+  </div>
+</ImageGallery>
+
+### Question Page
+
+Once the host initiates the quiz, all users are seamlessly redirected to the question page.
+Each question is allotted its individual timer. During this timeframe, all users must select an answer.
+When the timer runs out, everyone is automatically directed to a real-time leaderboard,
+displaying the results of the just-answered question.
+
+This process repeats for each question until all have been addressed. Following this, the final leaderboard is
+unveiled, showcasing the top 7 users and their points.Implementing this feature was intricate, as it
+necessitated ensuring that all users shared the same timer. The entire mechanism relies on `Web Sockets`.
+We also took care to prevent potential issues, such as users leaving and rejoining a room mid-question,
+as well as handling the conclusion of a room session.
+
+Once the session concludes, users can access their quiz history through an activity page.
+This offers a comprehensive overview of quizzes they've participated in.
+
+<ImageGallery>
+  {/* left slot  */}
+  <div className="flex-col space-y-4">
+    <LightBox
+      imageSrc="kuislam/question-page.png"
+      imageAlt="Question page."
+      customSize={true}
+      width={1919}
+      height={890}
+    />
+    <LightBox
+      imageSrc="kuislam/final-leaderboard-page.png"
+      imageAlt="Question page."
+      customSize={true}
+      width={1899}
+      height={932}
+    />
+  </div>
+  {/* right slot  */}
+  <div className="flex-col space-y-4">
+    <LightBox
+      imageSrc="kuislam/current-leaderboard-page.png"
+      imageAlt="Current leaderboard page."
+      customSize={true}
+      width={1919}
+      height={892}
+    />
+    <LightBox
+      imageSrc="kuislam/activity-page.png"
+      imageAlt="Activity page."
+      customSize={true}
+      width={1919}
+      height={893}
+    />
+  </div>
+</ImageGallery>
+
+### Admin Dashboard
+
+For the dashboard, there are several things that admin can do such as:
+
+- Topic Management: Create, Read, Update, and Delete (CRUD) topics.
+- Quiz Management: Conduct CRUD operations for all quizzes.
+- Question Administration: Handle all questions using CRUD functionalities.
+- Admin Role Management: Manage roles for fellow administrators.
+
+<ImageGallery>
+  {/* left slot  */}
+  <div className="flex-col space-y-4">
+    <LightBox
+      imageSrc="kuislam/dashboard-topics-page.png"
+      imageAlt="Dashboard topics page."
+      customSize={true}
+      width={1920}
+      height={894}
+    />
+    <LightBox
+      imageSrc="kuislam/dashboard-quizzes-page.png"
+      imageAlt="Dashboard quizzes page."
+      customSize={true}
+      width={1920}
+      height={894}
+    />
+    <LightBox
+      imageSrc="kuislam/dashboard-questions-page.png"
+      imageAlt="Dashboard quizzes page."
+      customSize={true}
+      width={1920}
+      height={894}
+    />
+    <LightBox
+      imageSrc="kuislam/dashboard-home-page.png"
+      imageAlt="Dashboard home page."
+      customSize={true}
+      width={1920}
+      height={894}
+    />
+  </div>
+  {/* right slot  */}
+  <div className="flex-col space-y-4">
+    <LightBox
+      imageSrc="kuislam/dashboard-form-topics-page.png"
+      imageAlt="Dashboard form topics page."
+      customSize={true}
+      width={1920}
+      height={894}
+    />
+    <LightBox
+      imageSrc="kuislam/dashboard-form-quizzes-page.png"
+      imageAlt="Dashboard form quizzes page."
+      customSize={true}
+      width={1920}
+      height={894}
+    />
+    <LightBox
+      imageSrc="kuislam/dashboard-form-questions-page.png"
+      imageAlt="Dashboard form questions page."
+      customSize={true}
+      width={1920}
+      height={894}
+    />
+    <LightBox
+      imageSrc="kuislam/dashboard-users-page.png"
+      imageAlt="Dashboard users page."
+      customSize={true}
+      width={1920}
+      height={894}
+    />
+  </div>
+</ImageGallery>
+
+## App demo
+
+<iframe
+  className="w-full aspect-video rounded-md"
+  src="https://www.youtube.com/embed/NiYtHYJZgTA"
+  title="YouTube video player"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  allowfullscreen
+></iframe>
