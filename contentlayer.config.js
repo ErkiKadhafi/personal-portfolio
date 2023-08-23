@@ -74,7 +74,7 @@ export const Project = defineDocumentType(() => ({
       required: true,
     },
     numberOfPeople: {
-      type: "string",
+      type: "number",
       required: true,
     },
   },
