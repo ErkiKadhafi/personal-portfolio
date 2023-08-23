@@ -5,10 +5,8 @@ import { useMDXComponent } from "next-contentlayer/hooks";
 import { cn } from "@/lib/utils";
 import clsx from "clsx";
 
-import { FaSass } from "react-icons/fa";
-import { CustomIcon } from "./Icon";
 import StyledLink from "./StyledLink";
-import LightBox, { LightBoxProps } from "@/components/Lightbox";
+import LightBox from "@/components/Lightbox";
 
 const components = {
   h2: ({ className, ...props }) => (
@@ -38,13 +36,19 @@ const components = {
   ),
   a: ({ className, ...props }) => (
     <a
-      className={cn("font-medium underline underline-offset-4", className)}
+      className={cn(
+        "transition-all ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
+        className
+      )}
       {...props}
     />
   ),
   p: ({ className, ...props }) => (
     <p
-      className={cn(clsx("mb-4", "text-sm sm:text-base lg:text-lg"), className)}
+      className={cn(
+        clsx("[&:not(:first-child)]:mb-4", "text-sm sm:text-base lg:text-lg"),
+        className
+      )}
       {...props}
     />
   ),
@@ -80,7 +84,9 @@ const components = {
   blockquote: ({ className, ...props }) => (
     <blockquote
       className={cn(
-        "mt-6 border-l-2 pl-6 italic [&>*]:text-muted-foreground",
+        "mb-4 pl-6 pr-1.5 py-2.5 italic",
+        "border-l-4 border-ring",
+        "bg-primary text-foreground",
         className
       )}
       {...props}

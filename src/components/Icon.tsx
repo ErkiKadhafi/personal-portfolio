@@ -1,4 +1,12 @@
-import { FaLaravel, FaReact, FaSass } from "react-icons/fa";
+import {
+  FaArrowLeft,
+  FaCss3Alt,
+  FaHtml5,
+  FaLaravel,
+  FaReact,
+  FaSass,
+  FaWordpressSimple,
+} from "react-icons/fa";
 import CustomTooltip from "./Tooltip";
 import {
   TbBrandHeadlessui,
@@ -6,6 +14,7 @@ import {
   TbBrandTailwind,
 } from "react-icons/tb";
 import {
+  SiApollographql,
   SiChakraui,
   SiJavascript,
   SiJquery,
@@ -19,23 +28,41 @@ type IconProps = {
   iconName: IconListType;
 };
 
-export const CustomIcon = ({ iconName }: IconProps) => {
+export function CustomIcon({ iconName }: IconProps) {
   const Selected = iconList[iconName];
   return (
     <CustomTooltip content={Selected.name}>
-      <Selected.icon className="cursor-pointer" />
+      <span>
+        <Selected.icon className="cursor-pointer" />
+      </span>
     </CustomTooltip>
   );
-};
+}
 
 const iconList = {
+  arrowLeft: {
+    name: "ChakraUI",
+    icon: FaArrowLeft,
+  },
   chakraui: {
     name: "ChakraUI",
     icon: SiChakraui,
   },
+  css: {
+    name: "CSS",
+    icon: FaCss3Alt,
+  },
   headlessui: {
     name: "HeadlessUI",
     icon: TbBrandHeadlessui,
+  },
+  graphql: {
+    name: "GraphQL",
+    icon: SiApollographql,
+  },
+  html: {
+    name: "HTML",
+    icon: FaHtml5,
   },
   javascript: {
     name: "Javascript",
@@ -76,5 +103,9 @@ const iconList = {
   typescript: {
     name: "Typescript",
     icon: SiTypescript,
+  },
+  wordpress: {
+    name: "Wordpress",
+    icon: FaWordpressSimple,
   },
 };

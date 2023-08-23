@@ -9,7 +9,7 @@ export default function useScrollSpy() {
   const throttleMs = 100;
 
   const actionSectionScrollSpy = throttle(() => {
-    const sections = document.getElementsByClassName("hash-anchor");
+    const sections = document.getElementsByClassName("subheading-anchor");
 
     let prevBBox = null;
     let currentSectionId = activeSection;

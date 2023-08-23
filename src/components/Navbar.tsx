@@ -40,7 +40,7 @@ export default function Navbar() {
             target="_blank"
             rel="noreferrer"
             className={cn(buttonVariants(), "text-xs sm:text-sm")}
-            href="https://drive.google.com/file/d/1lCTSB0n8s5BdfsbuQSFrWXik6ysaCofs/view?usp=drive_link"
+            href="https://drive.google.com/file/d/1ybJqoKnxJ0CjzpAsRveEs6IsPui2izxp/view?usp=sharing"
             aria-label="See my resume."
           >
             Resume

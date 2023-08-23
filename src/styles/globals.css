@@ -104,7 +104,7 @@
     @apply before:font-bold before:inline-block
     before:text-glow-black dark:before:text-glow-green
     before:text-xs before:sm:text-base before:lg:text-lg
-    before:mt-1.5 before:sm:mt-0.5 before:sm:mt-1
+    before:mt-1.5 before:sm:mt-0.5
     before:mr-2 before:sm:mr-1.5 before:lg:mr-3
     before:sm:-ml-6 before:lg:-ml-8;
   }

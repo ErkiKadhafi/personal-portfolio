@@ -1,0 +1,68 @@
+---
+title: Second Portfolio
+createdAt: Jun 2022
+summary: This site originally serve as my main portfolio, it contains my small projects that I have done in the past.
+thumbnail: "second-portfolio/thumbnail.png"
+isBigProject: false
+techStacks:
+  - html
+  - css
+  - javascript
+  - sass
+repoLink: "https://github.com/ErkiKadhafi/portofolio-magang"
+demoLink: "https://happy-williams-907ac1.netlify.app/"
+numberOfPeople: 1
+---
+
+## Project Purpose
+
+The purpose of this website is to display all my small projects.
+
+## About This Project
+
+This website is like a virtual scrapbook of my journey learning web development.
+It's filled with small projects I've worked on, which range from things my classmates and bootcamps asked me to do,
+to tasks I learned from YouTube tutorials.
+
+In these projects, I've tried out all sorts of cool stuff. For instance, I've used a special tool
+called `ThreeJs` to make 3D things using JavaScript. I've also made things move around on the
+screen using JavaScript, copied designs from other websites just for practice, grabbed information
+from other websites using APIs, and even figured out how to send emails from our own website using
+someone else's tools.
+
+If you click on any of these projects, you'll get to see what they're like by checking out a working
+demo of each one.
+
+## App demo
+
+You can click it for better view.
+
+<ImageGallery>
+  {/* left slot  */}
+  <div className="flex-col space-y-4">
+    <LightBox
+      src="second-portfolio/projects-page.png"
+      alt="Projects page"
+      customSize={true}
+      width={1920}
+      height={3304}
+    />
+  </div>
+  {/* right slot  */}
+  <div className="flex-col space-y-4">
+    <LightBox
+      src="second-portfolio/thumbnail.png"
+      alt="Home page"
+      customSize={true}
+      width={1920}
+      height={894}
+    />
+    <LightBox
+      src="second-portfolio/contact-page.png"
+      alt="Contact page"
+      customSize={true}
+      width={1920}
+      height={894}
+    />
+  </div>
+</ImageGallery>

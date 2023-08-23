@@ -19,7 +19,7 @@ export default function Toc({ headings }: TocProps) {
   const activeSectionId = useScrollSpy();
 
   return (
-    <ul className="mb-5 space-y-1 sm:ml-6 lg:ml-8">
+    <ul className="space-y-1 sm:ml-6 lg:ml-8">
       {headings.map((heading: HeadingType, index) => (
         <li
           key={index}
@@ -28,7 +28,8 @@ export default function Toc({ headings }: TocProps) {
           <Link
             href={`#${heading.slug}`}
             className={clsx(
-              "underline-animation-base ",
+              "transition-all ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
+              "underline-animation-base",
               activeSectionId === heading.slug &&
                 "before:underline-animation-start"
             )}

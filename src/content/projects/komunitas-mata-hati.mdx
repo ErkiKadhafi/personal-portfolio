@@ -1,0 +1,101 @@
+---
+title: Komunitas Mata Hati
+createdAt: Jun 2023
+summary: A community profile and blog page, implements a good accessibility based on international standard.
+thumbnail: "komunitas-mata-hati/thumbnail.png"
+isBigProject: true
+techStacks:
+  - next
+  - tailwind
+  - graphql
+  - wordpress
+repoLink: "-"
+demoLink: "https://www.komunitasmatahati.org/"
+numberOfPeople: 2
+---
+
+## Project Purpose
+
+This is the digital home of the "Komunitas Matahati" community, a collective dedicated to promoting equality
+for the visually impaired in society. Originally constructed using a `WordPress` template, the existing website
+suffered from subpar interface design and limited accessibility. In a bid to amplify their program's impact,
+the community has embarked on the journey of rebuilding the website with a strong focus on enhanced accessibility,
+aiming to foster greater awareness and engagement.
+
+## About Web Accessibility
+
+Step into the online world of "Komunitas Matahati," where you'll discover the community's news and happenings.
+While they use `WordPress` for their blogs, I've been tasked with improving the main website's look and feel.
+
+Learning about web accessibility is new for me. It means making sure that everyone,
+including those with challenges, can use the website easily. The current site might not seem special and
+doesn't work well with tools like screen readers. But that's the thing—web accessibility is about making
+sure everyone can use it.
+
+People who have trouble seeing use tools like screen readers on their phones or computers. We don't need to
+add anything special to the website for these tools to work.
+
+> Think of it like building a smooth sidewalk for wheelchairs instead of giving each person their own wheelchair.
+
+I'm following the <StyledLink openNewTab href="https://www.w3.org/WAI/standards-guidelines/wcag/">WCAG 2.0</StyledLink>
+standards, which are the rules everyone agrees on for web accessibility. So, every part of the website
+will be easy to use for everyone.
+
+## Features
+
+The website was put together using `NextJs` and `TailwindCSS`, and it gets its information from `WordPress`.
+It's pretty neat how `WordPress` acts like a tool to manage the content. To get the data I need,
+I use something called `GraphQL`, which is made easy by a plugin in `WordPress` called `WPGraphQL`.
+This plugin provides a special spot where I can get all the info I want.
+
+With the help of `GraphQL`, I don't have to do extra work to set up special points to get data like I would
+with something called REST API. On the website itself, users can easily search for articles and move from
+one page to another to see more articles using `search` and `cursor based pagination` feature.
+
+## App demo
+
+You can click it for better view.
+
+<ImageGallery>
+  {/* left slot  */}
+  <div className="flex-col space-y-4">
+    <LightBox
+      src="komunitas-mata-hati/home-page.png"
+      alt="Home page"
+      customSize={true}
+      width={1920}
+      height={5035}
+    />
+    <LightBox
+      src="komunitas-mata-hati/search-page.png"
+      alt="Search page"
+      customSize={true}
+      width={1920}
+      height={4063}
+    />
+    <LightBox
+      src="komunitas-mata-hati/detail-article-page.png"
+      alt="Detail article page"
+      customSize={true}
+      width={1920}
+      height={3019}
+    />
+  </div>
+  {/* right slot  */}
+  <div className="flex-col space-y-4">
+    <LightBox
+      src="komunitas-mata-hati/about-page.png"
+      alt="About page"
+      customSize={true}
+      width={1920}
+      height={5065}
+    />
+    <LightBox
+      src="komunitas-mata-hati/articles-page.png"
+      alt="Articles page"
+      customSize={true}
+      width={1920}
+      height={5870}
+    />
+  </div>
+</ImageGallery>

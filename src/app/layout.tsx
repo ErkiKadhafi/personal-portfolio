@@ -2,9 +2,7 @@ import "@/styles/globals.css";
 
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import Navbar from "@/components/Navbar";
 import ThemeProvider from "@/providers/ThemeProvider";
-import Footer from "@/components/Footer";
 
 const eina = localFont({
   src: [
@@ -42,9 +40,7 @@ export default function RootLayout({
     <html lang="en" className={`${eina.variable}`} suppressHydrationWarning>
       <body className="font-eina transition-[background-color] duration-300">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <Navbar />
-          <main>{children}</main>
-          <Footer />
+          {children}
         </ThemeProvider>
       </body>
     </html>

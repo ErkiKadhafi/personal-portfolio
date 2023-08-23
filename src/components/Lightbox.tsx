@@ -1,42 +1,36 @@
 "use client";
 
-import clsx from "clsx";
-import Image from "next/image";
 import { useState } from "react";
 import Lightbox from "react-image-lightbox";
+import BlurryImage, { BlurryImageProps } from "./BlurryImage";
 
-export type LightBoxProps = {
-  imageSrc: string;
-  imageAlt: string;
-} & (
-  | { customSize: true; height: number; width: number }
-  | { customSize: false }
-);
-
-export default function LightBox(props: LightBoxProps) {
+export default function LightBox({
+  customSize = false,
+  src,
+  alt,
+  height,
+  width,
+}: BlurryImageProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <>
-      <figure
-        className={clsx(!props.customSize && "relative w-full aspect-video")}
-      >
-        <Image
-          src={`/images/projects/${props.imageSrc}`}
-          alt={props.imageAlt}
-          className="cursor-pointer rounded-md border border-black dark:border-ring"
-          fill={!props.customSize}
-          {...(props.customSize && {
-            height: props.height,
-            width: props.width,
-          })}
-          onClick={() => setIsOpen(true)}
-        />
-      </figure>
+      <BlurryImage
+        src={`/images/projects/${src}`}
+        alt={alt}
+        customSize={customSize}
+        {...(customSize && {
+          height: height,
+          width: width,
+        })}
+        className="cursor-pointer"
+        onClick={() => setIsOpen(true)}
+        sizes="(max-width: 1024px) 50vw, 44vw"
+      />
       {isOpen && (
         <Lightbox
           onCloseRequest={() => setIsOpen(false)}
-          mainSrc={`/images/projects/${props.imageSrc}`}
+          mainSrc={`/images/projects/${src}`}
         />
       )}
     </>
