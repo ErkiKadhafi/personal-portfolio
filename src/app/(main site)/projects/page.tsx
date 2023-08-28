@@ -3,10 +3,11 @@ import { notFound } from "next/navigation";
 
 import clsx from "clsx";
 
-import Card from "@/components/Card";
 import { allProjects } from "@/contentlayer/generated";
 import AnimationReveal from "@/components/AnimationReveal";
 import Projects from "@/components/projects/Projects";
+
+import moment from "moment";
 
 export const metadata: Metadata = {
   title: "Projects",
@@ -14,7 +15,9 @@ export const metadata: Metadata = {
 };
 
 async function getAllProjects() {
-  const bigProjects = allProjects;
+  const bigProjects = allProjects.sort((a, b) =>
+    moment(b.createdAt).diff(a.createdAt)
+  );
   if (!bigProjects) notFound();
   return bigProjects;
 }

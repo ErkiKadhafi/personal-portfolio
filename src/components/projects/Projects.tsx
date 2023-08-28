@@ -11,6 +11,7 @@ export default function Projects({ projects }: { projects: Project[] }) {
     duration: 0.5,
     staggerChildren: 0.25,
     ease: "easeIn",
+    type: "tween",
   };
   return (
     <motion.ul

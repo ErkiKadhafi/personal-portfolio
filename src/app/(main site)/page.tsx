@@ -12,6 +12,7 @@ import { CustomIcon as Icon, IconListType } from "@/components/Icon";
 import { buttonVariants } from "@/components/ui/button";
 import { allProjects } from "@/contentlayer/generated";
 import AnimationReveal from "@/components/AnimationReveal";
+import moment from "moment";
 
 export const metadata: Metadata = {
   title: "Home",
@@ -36,7 +37,9 @@ const myTechstack = [
 ];
 
 async function getBigProjects() {
-  const bigProjects = allProjects.filter((project) => project.isBigProject);
+  const bigProjects = allProjects
+    .filter((project) => project.isBigProject)
+    .sort((a, b) => moment(b.createdAt).diff(a.createdAt));
   if (!bigProjects) notFound();
   return bigProjects;
 }

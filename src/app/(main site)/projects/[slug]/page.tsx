@@ -15,6 +15,8 @@ import { buttonVariants } from "@/components/ui/button";
 import { allProjects } from "@/contentlayer/generated";
 import AnimationReveal from "@/components/AnimationReveal";
 
+import moment from "moment";
+
 interface ProjectDetailPageProps {
   params: {
     slug: string;
@@ -45,7 +47,7 @@ export default async function ProjectDetailPage({
   const projectDetail = [
     {
       label: "Created Date",
-      value: project.createdAt,
+      value: moment(project.createdAt).format("MMMM YYYY").toString(),
     },
     {
       label: "Repo Link",

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Project } from "../../.contentlayer/generated";
 import { CustomIcon as Icon, IconListType } from "./Icon";
 import BlurryImage from "./BlurryImage";
+import moment from "moment";
 
 type CardProps = {
   isBigCard?: boolean;
@@ -45,7 +46,7 @@ export default function Card({ isBigCard = false, project }: CardProps) {
             {project.title}
           </h3>
           <time className="text-xs sm:text-sm tracking-[0.25em] block uppercase">
-            {project.createdAt}
+            {moment(project.createdAt).format("MMMM YYYY").toString()}
           </time>
         </div>
         <div className="grow flex flex-col justify-between">
